@@ -14,3 +14,22 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+
+
+
+
+
+/* --- Global Mixi-Animations --- */
+
+// Duration, final opacity, animation style, wait until animation starts
+@mixin fadein($sec, $final, $style, $wait) {
+	animation: fadein $sec $style $wait 1;
+	animation-fill-mode: forwards;
+	@keyframes fadein {
+		to {
+			opacity: $final;
+		}
+	}
+}
+
+
