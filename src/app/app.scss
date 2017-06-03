@@ -15,12 +15,64 @@
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
 
+/* -- Navbar styling -- */
+.navbar-top {
+	position: relative;
+	top: 0%;
+	left: 0%;
+	height: 50px;
+	width: 100%;
+	text-align: center;
+
+	.logo {
+		border-radius: 150px;
+	    background: black;
+	    height: 40px;
+	    width: 40px;
+	    left: 27px;
+	    top: 5px;
+	    display: inline-block;
+	    position: absolute;
+	}
+
+	.title {
+		display: inline-block;
+	    left: 153px;
+	    top: 13px;
+	    position: absolute;
+	    color: black;
+
+		font: {
+			size: 21px;
+			weight: bold;
+		}
+	}
+
+	.ask {
+		display: inline-block;
+	    width: 40px;
+	    height: 40px;
+	    border-radius: 150px;
+	    border: 1px solid red;
+	    left: 310px;
+	    top: 5px;
+		position: absolute;
+
+		.ask-text {
+			top: 5%;
+			color: red;
+			position: relative;
+
+			font: {
+				size: 30px;
+			}
+		}
+	}
+}
 
 
 
-
-/* --- Global Mixi-Animations --- */
-
+/* --- Global Mixin-Animations --- */
 // Duration, final opacity, animation style, wait until animation starts
 @mixin fadein($sec, $final, $style, $wait) {
 	animation: fadein $sec $style $wait 1;
