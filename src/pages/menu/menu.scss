@@ -1,3 +1,31 @@
 page-menu {
 
+	.menu-categories {
+		width: 100%;
+		height: 100px;
+		top: 20px;
+		position: relative;
+		text-align: center;
+
+		.option {
+			color: green;
+			background-color: black;
+			border-radius: 100px;
+			height: 40px;
+			width: 100px;
+			display: inline-block;
+			text-align: center;
+			margin-left: 5px;
+
+			font: {
+				weight: bold;
+				size: 13.5px;
+			}
+		}
+	}
+
+	.items-container {
+		position: relative;
+	}
+
 }
