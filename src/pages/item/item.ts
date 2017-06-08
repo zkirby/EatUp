@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { AboutPage } from '../about/about';
 
 /**
  * Generated class for the ItemPage page.
@@ -26,6 +27,10 @@ export class ItemPage {
 
   returnHome() {
   	this.navCtrl.pop();
+  }
+
+  getHelpPage() {
+    this.navCtrl.push(AboutPage);
   }
 
   ionViewDidLoad() {

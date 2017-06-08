@@ -27,17 +27,24 @@ export class LoadingPage {
 		// Standin for when server is fetching data 
 		setTimeout(() => console.log("fetch_call"), 2000);
 
-		setTimeout(() => this.navCtrl.push(HomePage), 4000);
+		setTimeout(() => this.navCtrl.push(HomePage, { "language": this.nativeLanguage }), 4000);
 	}
 
 	ionViewDidLoad() {
 		console.log("[Loading Page] - Loaded");
+
+		// Retrieve and then set the native language of the user.
 	  	console.log("Attempting to retrieve Native Language...");
 	  	this.globalization.getPreferredLanguage()
 	  	.then(res => {
 	  		console.log("Language Found! - " + res.value); 
-	  		this.nativeLanguage = "en";
+	  		this.setLanguage("en");
 	  	})
-	  	.catch(e => console.log("Error - " + e));
+	  	.catch(e => { console.log("Error - " + e); this.setLanguage("en"); } );
     }
+
+    setLanguage(language: string) {
+    	this.nativeLanguage = "en";
+    }
+
 }

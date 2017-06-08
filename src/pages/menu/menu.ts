@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { AboutPage } from '../about/about';
 
 /**
  * Generated class for the MenuPage page.
@@ -28,6 +29,10 @@ export class MenuPage {
 
   flipCard() {
     console.log("card flipped");
+  }
+
+  getHelpPage() {
+    this.navCtrl.push(AboutPage);
   }
 
   sampleDataCat() {

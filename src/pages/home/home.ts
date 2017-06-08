@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { ItemPage } from '../item/item';
 import { MenuPage } from '../menu/menu';
+import { AboutPage } from '../about/about';
+import { MenuDataProvider } from '../../providers/menu-data/menu-data';
 
 /*
 	Main navigation page for the app
@@ -17,9 +19,11 @@ export class HomePage {
 	restVal: string;
 	itemVal: string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public menuService: MenuDataProvider) {
   	this.restVal = "";
   	this.itemVal = "";
+
+    console.log("Recieved language: " + this.navParams.get("language"));
   }
 
   // I've left the decision as a string for right now 
@@ -27,19 +31,39 @@ export class HomePage {
   // the home screen.
   grabValue(decision: string) {
   	let destination: any;
-  	let params: object;
+  	let params: any;
 
   	if (decision == "r") {
   		destination = MenuPage;
-  		params = { value: this.restVal };
+  		params = this.getMenu(this.restVal, this.navParams.get("language"));
+      params = this.formatMenu(params);
+
+    // Will probably remove the ItemPage, but leave it as is
+    // incase of any future use.
   	} else if (decision == "i") {
   		destination = ItemPage;
   		params = { value: this.itemVal };
   	}
 
+    //params["language"] = this.navParams["language"];
+
   	console.log("moving pages... ");
 
   	setTimeout(() => this.navCtrl.push(destination, params), 2000);
+  }
+
+  getHelpPage() {
+    this.navCtrl.push(AboutPage);
+  }
+
+  getMenu(menu: string, language: string) {
+
+    console.log("Sending name: " + this.restVal)
+    return this.menuService.getRemoteData(menu, language);
+  }
+
+  formatMenu(obj: any) {
+    return obj;
   }
 
   ionViewDidLoad() {
