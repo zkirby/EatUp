@@ -11,21 +11,19 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class MenuDataProvider {
 
+  returnData: object[];
+
   constructor(public http: Http) {
   }
 
   getRemoteData(name: string, language: string) {
-  	console.log("Recieved name and language, sending to server")
-  	let na = this.formatMenuName(name);
-  	this.http.get("http://localhost:3000/submit/" + na + "-" + language).subscribe(
-  		(data) => {
-  			console.log("data");
-  		}
-  	);
+
+    name = this.formatMenuName(name);
+    return this.http.get("http://localhost:3000/submit/" + name + "-" + language)
+                    .map(res => { return res.json() });
   }
 
   formatMenuName(name: string) {
-  	console.log("Formatting name first")
   	return name.toLowerCase();
   }
 

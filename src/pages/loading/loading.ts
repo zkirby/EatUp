@@ -7,8 +7,7 @@ import { HomePage } from '../home/home';
 
 The loading page for the app
 
-TODO: add loading features, i.e. load data for translation from 
-the remote kamusi server.
+TODO: add language compatability .
 */ 
 
 
@@ -25,9 +24,9 @@ export class LoadingPage {
 		this.nativeLanguage = "en";
 
 		// Standin for when server is fetching data 
-		setTimeout(() => console.log("fetch_call"), 2000);
+		setTimeout(() => console.log("fetch_call"), 200);
 
-		setTimeout(() => this.navCtrl.push(HomePage, { "language": this.nativeLanguage }), 4000);
+		setTimeout(() => this.navCtrl.push(HomePage, { value: this.nativeLanguage, error: false }), 2000);
 	}
 
 	ionViewDidLoad() {

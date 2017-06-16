@@ -26,6 +26,37 @@ page-menu {
 
 	.items-container {
 		position: relative;
+		perspective: 1000px;
+
+		.flip-container {
+			height: 150px;
+			transition: 0.4s;
+			transform-style: preserve-3d;
+			position: relative;	
+			overflow: visible;
+			background: transparent;			
+
+			.front, .back {
+	            top: 0%;
+	            left: 0%;
+	            position: absolute; 
+	            z-index: 2;
+	            backface-visibility: hidden;
+			}
+
+			.front {
+				transform: rotateY(0deg);
+			}
+
+			.back {
+				width: 100%;
+				transform: rotateY(180deg);
+			}
+		}
+	}
+
+	.flip {
+		transform: rotateY(180deg);
 	}
 
 }

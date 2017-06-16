@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AboutPage } from '../about/about';
+import { HomePage } from '../home/home';
 
 /**
  * Generated class for the MenuPage page.
@@ -17,24 +18,66 @@ export class MenuPage {
 
 	categories: object[];
 	items: object[];
+  menu: object[];
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-  	this.categories = this.sampleDataCat();
-  	this.items = this.sampleDataItem();
+    let possibleMenu = this.navParams.get("value");
+
+    if (typeof possibleMenu == "string") {
+
+      this.navCtrl.push(HomePage, this.navParams);
+
+    } else {
+
+      this.menu = possibleMenu.menu;
+  	  this.categories = this.getCategories(this.menu);
+  	  this.items = this.getMenuItems(this.menu[0]["subsections"]);
+      
+    }
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad MenuPage');
+    console.log('[Menu Page] Loaded');
   }
 
-  flipCard() {
-    console.log("card flipped");
+  changeItems(index: number) {
+    this.items = this.getMenuItems(this.menu[index]["subsections"]);
   }
 
   getHelpPage() {
     this.navCtrl.push(AboutPage);
   }
 
+  goHome() {
+    this.navCtrl.pop();
+  }
+
+  getCategories(menu: object[]) {
+    let catreturn = []; let count = 0;
+    for (let heading of menu) {
+      catreturn.push( { name: heading["name"], index: count} ); 
+      count++;
+    }
+    return catreturn;
+  }
+
+  getMenuItems(menu: object[]) {
+    let itemreturn = [];
+    for (let section of menu) {
+      for (let food of section["items"]) {
+        itemreturn.push( { name: food["name"], subcontent: food["description"], flipped: false } );
+      }
+    }
+    return itemreturn;
+  }
+
+  flipCard(item:object) {
+    item['flipped'] = !item['flipped'];
+  }
+
+  // Sample Data for Local debugging, if you can run the server 
+  // the test menu is called 'dev menu' and should have entree - pasta/pizza and 
+  // drinks - water
   sampleDataCat() {
   	return [
   		{ name: "drinks" }, 

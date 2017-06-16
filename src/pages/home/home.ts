@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { ItemPage } from '../item/item';
 import { MenuPage } from '../menu/menu';
 import { AboutPage } from '../about/about';
 import { MenuDataProvider } from '../../providers/menu-data/menu-data';
+import { QuesnavPage } from '../quesnav/quesnav';
 
 /*
 	Main navigation page for the app
@@ -17,13 +17,21 @@ import { MenuDataProvider } from '../../providers/menu-data/menu-data';
 export class HomePage {
 
 	restVal: string;
-	itemVal: string;
+  userLang: string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public menuService: MenuDataProvider) {
   	this.restVal = "";
-  	this.itemVal = "";
 
-    console.log("Recieved language: " + this.navParams.get("language"));
+    if (this.navParams.get("error")) {
+      
+      this.navCtrl.push(QuesnavPage, { value: "", error: false});
+
+    } else {
+
+      this.userLang = this.navParams.get("value");
+      console.log("Recieved language: " + this.userLang);
+
+    }
   }
 
   // I've left the decision as a string for right now 
@@ -34,36 +42,25 @@ export class HomePage {
   	let params: any;
 
   	if (decision == "r") {
+
   		destination = MenuPage;
-  		params = this.getMenu(this.restVal, this.navParams.get("language"));
-      params = this.formatMenu(params);
+      
+      this.menuService.getRemoteData(this.restVal, this.userLang)
+                      .subscribe((data) => { 
+                                 this.navCtrl.push(destination, { value: data[0], error: false })
+                                  }, (err) => this.navCtrl.push(destination, { value: "couldn't find that menu :(", error: true }));
 
-    // Will probably remove the ItemPage, but leave it as is
-    // incase of any future use.
-  	} else if (decision == "i") {
-  		destination = ItemPage;
-  		params = { value: this.itemVal };
+  	} else if (decision == "q") {
+
+  		destination = QuesnavPage;
+  		params = { value: "", error: false };
+      this.navCtrl.push(destination, params);
+
   	}
-
-    //params["language"] = this.navParams["language"];
-
-  	console.log("moving pages... ");
-
-  	setTimeout(() => this.navCtrl.push(destination, params), 2000);
   }
 
   getHelpPage() {
     this.navCtrl.push(AboutPage);
-  }
-
-  getMenu(menu: string, language: string) {
-
-    console.log("Sending name: " + this.restVal)
-    return this.menuService.getRemoteData(menu, language);
-  }
-
-  formatMenu(obj: any) {
-    return obj;
   }
 
   ionViewDidLoad() {
