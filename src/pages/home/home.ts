@@ -47,8 +47,12 @@ export class HomePage {
       
       this.menuService.getRemoteData(this.restVal, this.userLang)
                       .subscribe((data) => { 
-                                 this.navCtrl.push(destination, { value: data[0], error: false })
-                                  }, (err) => this.navCtrl.push(destination, { value: "couldn't find that menu :(", error: true }));
+                                      if (data.length == 0) {
+                                        this.navCtrl.push(QuesnavPage, { value: "couldn't find that menu :(", error: true });
+                                      } else {
+                                       this.navCtrl.push(destination, { value: data[0], error: false });
+                                      }
+                                  }, (err) => this.navCtrl.push(QuesnavPage, { value: "couldn't find that menu :(", error: true }));
 
   	} else if (decision == "q") {
 

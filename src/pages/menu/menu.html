@@ -35,10 +35,12 @@
 				</ion-card-content> 
 			</div>
 			<div class="back">
-				<ion-card-header> Nothing to see here </ion-card-header> 
+				<ion-card-header> Information </ion-card-header> 
 				<ion-card-content>
-					Like I said, nothing to see here.
+					{{item.name}} serves {{item.numPeople}} people.
+					The ingredients are: {{item.ingre}}
 				</ion-card-content>
+				<ion-item><button ion-button color="danger">order</button></ion-item>
 			</div>
 		</ion-card>
 	</ion-list>

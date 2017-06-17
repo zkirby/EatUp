@@ -62,10 +62,20 @@ export class MenuPage {
   }
 
   getMenuItems(menu: object[]) {
-    let itemreturn = [];
+    let itemreturn = []; let ingreString = "";
     for (let section of menu) {
       for (let food of section["items"]) {
-        itemreturn.push( { name: food["name"], subcontent: food["description"], flipped: false } );
+        for (let ing of food["ingredients"]) {
+          ingreString += ing["ingredient"] + ", ";
+        }
+        itemreturn.push( 
+            { name: food["name"], 
+            subcontent: food["description"], 
+            flipped: false,
+            numPeople: food["nbPeople"],
+            ingre: ingreString.slice(0, ingreString.length - 2) } 
+          );
+        ingreString = "";
       }
     }
     return itemreturn;

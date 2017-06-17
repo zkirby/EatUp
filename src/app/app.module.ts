@@ -12,6 +12,7 @@ import { HomePage } from '../pages/home/home';
 import { ItemPage } from '../pages/item/item';
 import { LoadingPage } from '../pages/loading/loading';
 import { MenuPage } from '../pages/menu/menu';
+import { QuesnavPage } from '../pages/quesnav/quesnav';
 import { MenuDataProvider } from '../providers/menu-data/menu-data';
 
  
@@ -22,7 +23,8 @@ import { MenuDataProvider } from '../providers/menu-data/menu-data';
     HomePage, 
     ItemPage,
     MenuPage,
-    AboutPage
+    AboutPage,
+    QuesnavPage
   ],
   imports: [
     BrowserModule,
@@ -36,7 +38,8 @@ import { MenuDataProvider } from '../providers/menu-data/menu-data';
     HomePage,
     ItemPage,
     MenuPage,
-    AboutPage
+    AboutPage,
+    QuesnavPage
   ],
   providers: [
     StatusBar,

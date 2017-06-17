@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
+import { AboutPage } from '../about/about';
+
 
 /**
  * Generated class for the QuesnavPage page.
@@ -14,11 +16,32 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class QuesnavPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public toastCtrl: ToastController) {
+
+    if (this.navParams.get("error")) {
+
+      let toast = this.toastCtrl.create({
+      message: this.navParams.get("value"),
+      duration: 2000,
+      position: 'top'
+      });
+      toast.present();
+
+    } else {
+
+    }
+
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad QuesnavPage');
+    console.log('[Quesnav Page] loaded');
   }
 
+  goHome() {
+  	this.navCtrl.pop();
+  }
+
+  getHelpPage() {
+  	this.navCtrl.push(AboutPage, { value: "", error: false });
+  }
 }
