@@ -19,6 +19,12 @@
 
 <ion-content padding>
 
-	<ion-item>Welcome to manual select</ion-item>
+	<ion-list>
+		<ion-list-header>{{getFirst(headerLinkedList)}}</ion-list-header>
+
+		<ion-item *ngFor="let item of getChildren(decisionTree)" (click)="changeTree(item)">{{item.root}} 
+		<button ion-button color="danger" [ngClass]="{'invis': hideOrderButtons}">order</button>
+		</ion-item>
+	</ion-list>
 
 </ion-content>
