@@ -19,6 +19,7 @@ export class MenuPage {
 	categories: object[];
 	items: object[];
   menu: object[];
+  cache: Map<number, object[]>;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController) {
     let possibleMenu = this.navParams.get("value");
@@ -32,8 +33,21 @@ export class MenuPage {
       this.menu = possibleMenu.menu;
   	  this.categories = this.getCategories(this.menu);
   	  this.items = this.getMenuItems(this.menu[0]["subsections"]);
+      this.cache = new Map();
       
     }
+  }
+
+  memoizeItems(index:number, items:object[]) {
+    this.cache.set(index, items);
+  }
+
+  getCachedItem(index:number) {
+    return this.cache.get(index);
+  }
+
+  checkCached(index:number) {
+    return this.cache.has(index);
   }
 
   ionViewDidLoad() {
@@ -41,7 +55,12 @@ export class MenuPage {
   }
 
   changeItems(index: number) {
-    this.items = this.getMenuItems(this.menu[index]["subsections"]);
+    if (this.checkCached(index)) {
+      this.items = this.getCachedItem(index);
+    } else {
+      this.items = this.getMenuItems(this.menu[index]["subsections"]);
+      this.memoizeItems(index, this.items);
+    }
   }
 
   getHelpPage() {
@@ -64,11 +83,16 @@ export class MenuPage {
   getMenuItems(menu: object[]) {
     let itemreturn = []; 
     let ingreString = ""; 
-
+    let daysArray = [];
     for (let section of menu) {
       for (let food of section["items"]) {
         for (let ing of food["ingredients"]) {
           ingreString += ing["ingredient"] + ", ";
+        }
+        for (let day of Object.keys(food["day"])) {
+          if (food["day"][day]) {
+            daysArray.push(day);
+          }
         }
         itemreturn.push( 
             { name: food["name"], 
@@ -76,13 +100,12 @@ export class MenuPage {
             flipped: false,
             numPeople: food["nbPeople"],
             ingre: ingreString.slice(0, ingreString.length - 2),
-            days: food["day"],
+            //days: daysArray,
             mealType: food["meal"] } 
           );
-        ingreString = "";
+        ingreString = ""; daysArray = [];
       }
     }
-    console.log(Object.keys(itemreturn[0]['days']));
     return itemreturn;
   }
 

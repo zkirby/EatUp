@@ -46,9 +46,17 @@ page-menu {
 
 			.front {
 				transform: rotateY(0deg);
+				font: {
+					size: 12px;
+				}
+
+				.servedHeader {
+					margin-top: 10px;
+				}
 
 				.servedItem {
 					display: inline-block;
+					margin-left: 3px;
 				}
 			}
 

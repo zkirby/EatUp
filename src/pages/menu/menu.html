@@ -31,12 +31,13 @@
 				<ion-card-header> {{item.name}} </ion-card-header> 
 
 				<ion-card-content> 
-					<ion-item>{{item.subcontent}}</ion-item>
-					<ion-item> Served: 
+					{{item.subcontent}}
+					<div class="servedHeader"> Served at: 
 						<div class="servedItem" *ngIf="item['mealType']['breakfast']">breakfast</div>
 						<div class="servedItem" *ngIf="item['mealType']['lunch']">lunch</div>
 						<div class="servedItem" *ngIf="item['mealType']['dinner']">dinner</div>
-					</ion-item>
+						<div class="servedItem" *ngIf="!(item['mealType']['breakfast'] || item['mealType']['lunch'] || item['mealType']['dinner'])">anytime</div>
+					</div>
 				</ion-card-content> 
 			</div>
 			<div class="back">
