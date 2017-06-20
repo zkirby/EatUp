@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController, AlertController} from 'ionic-angular';
 import { AboutPage } from '../about/about';
 
 
@@ -20,7 +20,7 @@ export class QuesnavPage {
   headerLinkedList: object;
   hideOrderButtons: boolean;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public toastCtrl: ToastController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public toastCtrl: ToastController, public alertCtrl: AlertController) {
 
     if (this.navParams.get("error")) {
 
@@ -72,6 +72,18 @@ export class QuesnavPage {
         this.hideOrderButtons = true;
       }
     }
+  }
+
+  askOrder(name:string) {
+
+    let alert = this.alertCtrl.create({
+      title: 'Pass to Waiter/Waitress',
+      subTitle: 'I would like to order ' + name,
+      buttons: ['OK']
+    });
+
+    alert.present();
+
   }
 
   makeHeaderLinkedList() {

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { AboutPage } from '../about/about';
 import { HomePage } from '../home/home';
 
@@ -20,7 +20,7 @@ export class MenuPage {
 	items: object[];
   menu: object[];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController) {
     let possibleMenu = this.navParams.get("value");
 
     if (typeof possibleMenu == "string") {
@@ -62,7 +62,9 @@ export class MenuPage {
   }
 
   getMenuItems(menu: object[]) {
-    let itemreturn = []; let ingreString = "";
+    let itemreturn = []; 
+    let ingreString = ""; 
+
     for (let section of menu) {
       for (let food of section["items"]) {
         for (let ing of food["ingredients"]) {
@@ -73,16 +75,32 @@ export class MenuPage {
             subcontent: food["description"], 
             flipped: false,
             numPeople: food["nbPeople"],
-            ingre: ingreString.slice(0, ingreString.length - 2) } 
+            ingre: ingreString.slice(0, ingreString.length - 2),
+            days: food["day"],
+            mealType: food["meal"] } 
           );
         ingreString = "";
       }
     }
+    console.log(Object.keys(itemreturn[0]['days']));
     return itemreturn;
   }
 
   flipCard(item:object) {
     item['flipped'] = !item['flipped'];
+  }
+
+  askOrder(item:object) {
+    this.flipCard(item);
+
+    let alert = this.alertCtrl.create({
+      title: 'Pass to Waiter/Waitress',
+      subTitle: 'I would like to order ' + item['name'],
+      buttons: ['OK']
+    });
+
+    alert.present();
+
   }
 
   // Sample Data for Local debugging, if you can run the server 

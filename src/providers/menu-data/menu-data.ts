@@ -24,7 +24,9 @@ export class MenuDataProvider {
   }
 
   formatMenuName(name: string) {
-  	return name.toLowerCase();
+    name = name.toLowerCase().split("").join("");
+    console.log(name);
+  	return name;
   }
 
 }

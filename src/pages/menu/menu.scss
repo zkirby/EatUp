@@ -46,11 +46,19 @@ page-menu {
 
 			.front {
 				transform: rotateY(0deg);
+
+				.servedItem {
+					display: inline-block;
+				}
 			}
 
 			.back {
 				width: 100%;
 				transform: rotateY(180deg);
+
+				button {
+					top: -4px;
+				}
 			}
 		}
 	}
