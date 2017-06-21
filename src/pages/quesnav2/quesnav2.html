@@ -1,0 +1,41 @@
+<!--
+  Generated template for the Quesnav2Page page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+	<div class="navbar-top">
+		<div (click)="goHome()" class="logo"></div>
+		<div class="title">EatUp!</div>
+		<div class="ask">
+			<div (click)="getHelpPage()" class="ask-text">?</div>
+		</div>
+	</div>
+
+</ion-header>
+
+
+<ion-content padding>
+
+	<ion-list *ngIf="!decisionTree['checkbox']">
+		<ion-list-header>{{getFirst(headerLinkedList)}}</ion-list-header>
+
+		<ion-item *ngFor="let item of getChildren(decisionTree)" (click)="changeTree(item)">{{item.root}} 
+		</ion-item>
+	</ion-list>
+
+	<ion-list *ngIf="decisionTree['checkbox']">
+		<ion-list-header>{{getFirst(headerLinkedList)}}</ion-list-header>
+
+		<ion-item *ngFor="let item of getChildren(decisionTree)">
+     		<ion-label>{{item.root}}</ion-label>
+     		<ion-checkbox [(ngModel)]="orderObject[headerLinkedList['stage']][item.root.toLowerCase()]" disabled="{{item.disabled}}"></ion-checkbox>
+   		</ion-item>
+
+   		<button ion-button color="danger" (click)="stageNext()">next</button>
+	</ion-list>
+
+
+</ion-content>

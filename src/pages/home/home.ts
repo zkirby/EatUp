@@ -4,6 +4,7 @@ import { MenuPage } from '../menu/menu';
 import { AboutPage } from '../about/about';
 import { MenuDataProvider } from '../../providers/menu-data/menu-data';
 import { QuesnavPage } from '../quesnav/quesnav';
+import { Quesnav2Page } from '../quesnav2/quesnav2';
 
 /*
 	Main navigation page for the app
@@ -60,7 +61,12 @@ export class HomePage {
   		params = { value: "", error: false };
       this.navCtrl.push(destination, params);
 
-  	}
+  	} else if (decision == "q2") {
+
+      destination = Quesnav2Page;
+      params = { value: "", error: false };
+      this.navCtrl.push(destination, params);
+    }
   }
 
   getHelpPage() {

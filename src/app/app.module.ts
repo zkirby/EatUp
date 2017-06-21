@@ -13,6 +13,7 @@ import { ItemPage } from '../pages/item/item';
 import { LoadingPage } from '../pages/loading/loading';
 import { MenuPage } from '../pages/menu/menu';
 import { QuesnavPage } from '../pages/quesnav/quesnav';
+import { Quesnav2Page } from '../pages/quesnav2/quesnav2';
 import { MenuDataProvider } from '../providers/menu-data/menu-data';
 
  
@@ -24,7 +25,8 @@ import { MenuDataProvider } from '../providers/menu-data/menu-data';
     ItemPage,
     MenuPage,
     AboutPage,
-    QuesnavPage
+    QuesnavPage,
+    Quesnav2Page
   ],
   imports: [
     BrowserModule,
@@ -39,7 +41,8 @@ import { MenuDataProvider } from '../providers/menu-data/menu-data';
     ItemPage,
     MenuPage,
     AboutPage,
-    QuesnavPage
+    QuesnavPage,
+    Quesnav2Page
   ],
   providers: [
     StatusBar,
