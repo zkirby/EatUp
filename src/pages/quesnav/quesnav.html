@@ -22,8 +22,8 @@
 	<ion-list>
 		<ion-list-header>{{getFirst(headerLinkedList)}}</ion-list-header>
 
-		<ion-item *ngFor="let item of getChildren(decisionTree)" (click)="changeTree(item)">{{item.root}} 
-		<button ion-button (click)="askOrder(item.root)" color="danger" [ngClass]="{'invis': hideOrderButtons}">order</button>
+		<ion-item *ngFor="let item of getChildren(decisionTree)" (click)="changeTree(item)">	{{item.root}} 
+			<button ion-button (click)="askOrder(item.root)" color="danger" [ngClass]="{'invis': hideOrderButtons}">order</button>
 		</ion-item>
 	</ion-list>
 

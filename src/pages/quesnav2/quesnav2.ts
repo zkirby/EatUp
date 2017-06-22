@@ -18,12 +18,14 @@ export class Quesnav2Page {
   decisionTree: object;
   headerLinkedList: object;
   orderObject: object;
+  passToMe: boolean;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController) {
 
     this.orderObject = this.makeOrderObject();
   	this.decisionTree = this.makeDecisionTree();
     this.headerLinkedList = this.makeHeaderLinkedList();
+    this.passToMe = false;
 
   }
 
@@ -52,11 +54,13 @@ export class Quesnav2Page {
   		console.log("leaf");
   	} else {
   		this.decisionTree = item;
-  		console.log(this.decisionTree);
+  		let passOrder = this.headerLinkedList['pass'];
   		this.headerLinkedList = this.headerLinkedList['next'];
+
+  		if (passOrder) {
+  			this.askOrder();
+  		}
   	}
-
-
   }
 
   processStage(tree:object, stage:string) {
@@ -68,37 +72,56 @@ export class Quesnav2Page {
   stageNext() {
   	this.decisionTree = this.decisionTree['nextStage'];
   	let currentStage = this.headerLinkedList['stage'];
+  	let passOrder = this.headerLinkedList['pass'];
   	this.headerLinkedList = this.headerLinkedList['next'];
 
   	// Update which buttons are active 
   	this.processStage(this.decisionTree, currentStage);
+
+  	if (passOrder) {
+  		this.askOrder();
+  	}
   }
 
-  askOrder(name:string) {
+  askOrder() {
 
     let alert = this.alertCtrl.create({
-      title: 'Pass to Waiter/Waitress',
+      title: this.passToMe ? "Pass to customer" : "Pass to Waiter/Watrees",
+      buttons: ['OK']
+    });
+
+    this.passToMe = !this.passToMe;
+    alert.present();
+
+  }
+
+  orderItem(name:string) {
+  	let alert = this.alertCtrl.create({
+      title: "Pass to Waiter/Watrees",
       subTitle: 'I would like to order ' + name,
       buttons: ['OK']
     });
 
     alert.present();
-
   }
 
   makeHeaderLinkedList() {
     return {
       first: "I'm in the mood for...",
       stage: "stag1",
+      pass: true,
       next: {
         first: "This restaurant has...",
         stage: "stage2",
+        pass: true,
         next: {
-          first: "This restaurant has...",
+          first: "I would like to order...",
           stage: "stage3",
+          pass: false,
           next: {
-          	first: "I would like something with...",
+          	first: "I would like...",
           	stage: "stage4",
+          	pass: false,
           	next: {}
           }
         }
@@ -110,52 +133,106 @@ export class Quesnav2Page {
     return {
     	root: "root",
     	checkbox: false,
+    	isLeaf: false,
     	children: [
     		{
     			root: "An Entree",
     			checkbox: true,
+    			isLeaf: false,
+    			disabled: false,
     			children: [
     				{
     					root: "Pizza",
     					checkbox: true,
-    					disabled: false
+    					isLeaf: false,
+    					disabled: false,
+    					subchildren: [" "]
     				}, 
     				{
     					root: "Pasta",
     					checkbox: true,
-    					disabled: false
+    					isLeaf: false,
+    					disabled: false,
+    					subchildren: [" "]
     				},
     				{
     					root: "Soup",
     					checkbox: true,
-    					disabled: false
+    					isLeaf: false,
+    					disabled: false,
+    					subchildren: [" "]
     				}
     			],
+    			subchildren: [" "],
     			nextStage: {
     				checkbox: true,
+    				isLeaf: false,
     				children: [
 					{
     					root: "Pizza",
-    					checkbox: true,
-    					disabled: false,
+    					isLeaf: false,
+    					checkbox: false,
+    					disabled: false
     				}, 
     				{
     					root: "Pasta",
-    					checkbox: true,
-    					disabled: false,
+    					checkbox: false,
+    					isLeaf: false,
+    					disabled: false
     				},
     				{
     					root: "Soup",
-    					checkbox: true,
-    					disabled: false,
+    					checkbox: false,
+    					isLeaf: false,
+    					disabled: false
     				}
-    				]
-    			}
+    				],
+    				nextStage: {
+	    				checkbox: false,
+	    				isLeaf: false,
+	    				children: [
+	    					{
+	    						root: "Pizza",
+	    						isLeaf: true,
+	    						checkbox: false,
+	    						disabled: false,
+	    						children: [],
+	    						subchildren: [
+	    							"with just cheese", "with pepperoni", "with olives"
+	    						]
+	    					}, 
+	    					{
+	    						root: "Pasta",
+	    						isLeaf: true,
+	    						checkbox: false,
+	    						disabled: false,
+	    						children: [],
+	    						subchildren: [
+	    							"with marinara sauce", "with red sauce"
+	    						]
+	    					},
+	    					{
+	    						root: "Soup",
+	    						isLeaf: true,
+	    						checkbox: false,
+	    						disabled: false,
+	    						children: [],
+	    						subchildren: [
+	    							"with chicken", "with tomatoes"
+	    						]
+	    					}
+	    				]
+    				}
+    			},
+
     		},
     		{
     			root: "A Drink",
     			checkbox: true,
-    			children: []
+    			isLeaf: false,
+    			children: [],
+    			subchildren: [" "],
+    			disabled: false
     		}
     	]
     };
@@ -170,7 +247,7 @@ export class Quesnav2Page {
   		stage2: {
   			chicken: false,
   			pasta: false,
-  			pizza: false,
+  			pizza: false
   		},
   		stage3: {
   			chicken: false,
