@@ -13,4 +13,14 @@
 
 <ion-content padding>
 
+	<ion-item>
+	  <ion-label>Language</ion-label>
+	  <ion-select [(ngModel)]="language" okText="Okay" cancelText="Dismiss" (ionChange)="changeLang()">
+	    <ion-option *ngFor="let lang of languageSupported" [value]="lang.code">{{lang.lang}}</ion-option>
+	  </ion-select>
+	</ion-item>
+
+	<div class="greeting">{{'HELLO' | translate}}, and welcome to eatup!</div>
+
+
 </ion-content>

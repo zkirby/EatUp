@@ -1,10 +1,12 @@
-import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
-import { MenuPage } from '../menu/menu';
 import { AboutPage } from '../about/about';
+import { Component } from '@angular/core';
+import { MenuPage } from '../menu/menu';
 import { MenuDataProvider } from '../../providers/menu-data/menu-data';
+import { NavController, NavParams } from 'ionic-angular';
+import { TranslateService } from '@ngx-translate/core';
 import { QuesnavPage } from '../quesnav/quesnav';
 import { Quesnav2Page } from '../quesnav2/quesnav2';
+import { QuickaskPage } from '../quickask/quickask';
 
 /*
 	Main navigation page for the app
@@ -20,8 +22,9 @@ export class HomePage {
 	restVal: string;
   userLang: string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public menuService: MenuDataProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public menuService: MenuDataProvider, public translate: TranslateService) {
   	this.restVal = "";
+    this.translate.setDefaultLang('en');
 
     if (this.navParams.get("error")) {
       
@@ -66,6 +69,12 @@ export class HomePage {
       destination = Quesnav2Page;
       params = { value: "", error: false };
       this.navCtrl.push(destination, params);
+    } else if (decision == "a") {
+
+      destination = QuickaskPage;
+      params = { value: "", error: false };
+      this.navCtrl.push(destination, params);
+
     }
   }
 

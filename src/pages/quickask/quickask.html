@@ -1,0 +1,32 @@
+<!--
+  Generated template for the Quesnav2Page page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+	<div class="navbar-top">
+		<div (click)="goHome()" class="logo"></div>
+		<div class="title">EatUp!</div>
+		<div class="ask">
+			<div (click)="getHelpPage()" class="ask-text">?</div>
+		</div>
+	</div>
+
+</ion-header>
+
+
+<ion-content padding>
+
+	<ion-list>
+		<ion-list-header>I would like...</ion-list-header>
+
+		<ion-item *ngFor="let item of askItems">
+			<button ion-button (click)="order(item)" color="light">{{item}}</button>
+		</ion-item>
+
+	</ion-list>
+
+
+</ion-content>
