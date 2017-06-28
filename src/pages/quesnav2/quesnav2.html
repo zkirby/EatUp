@@ -25,7 +25,7 @@
 		<ion-item *ngFor="let item of getChildren(decisionTree)">
 				<ion-item *ngFor="let subitem of item['subchildren']" (click)="changeTree(item)" no-lines [ngClass]="{'invis': item.disabled}">
 					{{item.root + " " + subitem}}
-					<button ion-button (click)="orderItem(item.root + ' ' + subitem)" color="danger" [ngClass]="{'invis': !item.isLeaf}">order</button>
+					<button class="order-button" ion-button (click)="orderItem(item.root + ' ' + subitem)" [ngClass]="{'invis': !item.isLeaf}">order</button>
 				</ion-item>
 		</ion-item>
 
@@ -39,7 +39,7 @@
      		<ion-checkbox [(ngModel)]="orderObject[headerLinkedList['stage']][item.root.toLowerCase()]" disabled="{{item.disabled}}"></ion-checkbox>
    		</ion-item>
 
-   		<button ion-button color="danger" (click)="stageNext()">next</button>
+   		<button ion-button class="order-button" (click)="stageNext()">next</button>
 	</ion-list>
 
 

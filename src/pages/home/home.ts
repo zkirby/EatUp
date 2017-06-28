@@ -33,6 +33,7 @@ export class HomePage {
     } else {
 
       this.userLang = this.navParams.get("value");
+      this.translate.use(this.userLang);
       console.log("Recieved language: " + this.userLang);
 
     }

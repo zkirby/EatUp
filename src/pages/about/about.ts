@@ -20,19 +20,23 @@ export class AboutPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public translate: TranslateService) {
 
+    this.language = this.translate.currentLang;
     this.languageSupported = this.makeLanguageSupport();
-    this.language = "en";
   }
 
   makeLanguageSupport(): object[] {
     return [
     {
-      lang: "English",
+      lang: "ENGLISH",
       code: "en"
     }, 
     {
-      lang: "Spanish",
+      lang: "SPANISH",
       code: "es"
+    },
+    {
+      lang: "FRENCH",
+      code: "fr"
     }
     ];
   }

@@ -1,3 +1,20 @@
 page-quickask {
 
+	.order-path {
+		animation: pushForward 0.2s linear 0s 1;
+		animation-fill-mode: forwards;
+	}
+
+
+}
+
+
+/* button push forward */
+@keyframes pushForward {
+	from {
+		left: 0px;
+	}
+	to {
+		left: 20px;
+	}
 }

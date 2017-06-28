@@ -22,11 +22,15 @@
 	<ion-list>
 		<ion-list-header>I would like...</ion-list-header>
 
-		<ion-item *ngFor="let item of askItems">
-			<button ion-button (click)="order(item)" color="light">{{item}}</button>
+		<ion-item *ngFor="let item of getChildren(askItems)">
+			<button ion-button (click)="orderOrMove(item)" color="light" [ngClass]="{'order-path' : item.hit}">
+			{{item.root | translate}}</button>
 		</ion-item>
 
 	</ion-list>
 
+	<button ion-button *ngIf="notRoot()" (click)="goBack()" class="order-button">
+		<ion-icon name="arrow-back"></ion-icon>
+	</button>
 
 </ion-content>

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { Globalization } from '@ionic-native/globalization';
+import { TranslateService } from '@ngx-translate/core';
 
 import { HomePage } from '../home/home';
 /* 
@@ -20,7 +21,7 @@ export class LoadingPage {
 	// Native language of the user
 	nativeLanguage: string;
 
-	constructor(public navCtrl: NavController, private globalization: Globalization) {
+	constructor(public navCtrl: NavController, private globalization: Globalization, public translate: TranslateService) {
 		this.nativeLanguage = "en";
 
 		// Standin for when server is fetching data 
@@ -38,8 +39,9 @@ export class LoadingPage {
 	  	.then(res => {
 	  		console.log("Language Found! - " + res.value); 
 	  		this.setLanguage("en");
+	  		this.translate.setDefaultLang('en');
 	  	})
-	  	.catch(e => { console.log("Error - " + e); this.setLanguage("en"); } );
+	  	.catch(e => { console.log("Error - " + e); this.setLanguage("en");this.translate.setDefaultLang('en'); } );
     }
 
     setLanguage(language: string) {

@@ -32,7 +32,7 @@
 
 				<ion-card-content> 
 					{{item.subcontent}}
-					<div class="servedHeader"> Served at: 
+					<div class="servedHeader"> {{"SERVED AT" | translate}}: 
 						<div class="servedItem" *ngIf="item['mealType']['breakfast']">breakfast</div>
 						<div class="servedItem" *ngIf="item['mealType']['lunch']">lunch</div>
 						<div class="servedItem" *ngIf="item['mealType']['dinner']">dinner</div>
@@ -46,7 +46,7 @@
 					{{item.name}} serves {{item.numPeople}} people.
 					The ingredients are: {{item.ingre}}
 				</ion-card-content>
-				<ion-item><button ion-button (click)="askOrder(item)" color="danger">order</button></ion-item>
+				<ion-item><button ion-button (click)="askOrder(item)" color="danger">{{"ORDER" | translate}}</button></ion-item>
 			</div>
 		</ion-card>
 	</ion-list>

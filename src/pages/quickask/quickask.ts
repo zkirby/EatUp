@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { AboutPage } from '../about/about';
+import { TranslateService } from '@ngx-translate/core';
 
 /**
  * Generated class for the QuickaskPage page.
@@ -15,9 +16,9 @@ import { AboutPage } from '../about/about';
 })
 export class QuickaskPage {
 
-	askItems: string[];
+	askItems: object;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController, public translate: TranslateService) {
 
   	this.askItems = this.makeAskItems();
   }
@@ -34,30 +35,112 @@ export class QuickaskPage {
   	this.navCtrl.push(AboutPage);
   }
 
-  order(item:string) {
+  orderOrMove(item:object) {
 
-    let alert = this.alertCtrl.create({
-      title: "could I please have " + item,
-      buttons: ['OK']
-    });
+    if (this.isLeaf(item)) {
 
-    alert.present();
+      this.translate.get(item['root']).subscribe(
+      value => {
+            let alert = this.alertCtrl.create({
+              title: "could I please have " + value,
+              buttons: ['OK']
+            });
+
+            alert.present();
+          }
+        )
+
+    } else {
+      item['prev'] = this.askItems;
+      item['hit'] = true;
+      setTimeout(()=> this.askItems = item, 400);
+    }
 
   }
 
-  makeAskItems() {
+  isLeaf(item: object):boolean {
+    return this.getChildren(item) == 0;
+  }
 
-  	return [
-  		"the bill",
-  		"a glass of water",
-  		"a fork",
-  		"some chopsticks",
-  		"a knife",
-  		"a spoon",
-  		"some milk",
-  		"some creamer"
-  	]
+  getChildren(item:object) {
+    return item['children'];
+  }
 
+  goBack() {
+    if (!(this.askItems['root'] == "root")) {
+
+      // since we're going back, undo the hit
+      this.askItems['hit'] = false;
+      // set the new ask item to the previous ask items
+      this.askItems = this.askItems['prev'];
+    }
+  }
+
+  notRoot() {
+    return !(this.askItems['root'] == "root");
+  }
+
+  makeAskItems():object {
+    return {
+      root: "root",
+      children: [
+            {
+            root: "SOME UTENSILS",
+            hit: false,
+            children: [
+            {
+              root: "A SPOON",
+              hit: false,
+              children: []
+            },
+            {
+              root: "SOME CHOPSTICKS",
+              hit: false,
+              children: []
+            },
+            {
+              root: "A KNIFE",
+              hit: false,
+              children: []
+            },
+            {
+              root: "A FORK",
+              hit: false,
+              children: []
+            }
+          ]
+        },
+        {
+          root: "SOME MORE..",
+          children: [
+          {
+            root: "KETCHUP",
+            hit: false,
+            children: []
+          },
+          {
+            root: "MILK",
+            hit: false,
+            children: []
+          },
+          {
+            root: "WATER",
+            hit: false,
+            children: []
+          },
+          {
+            root: "CREAMER",
+            hit: false,
+            children: []
+          }
+          ]
+        },
+        {
+          root: "THE BILL",
+          children: []
+        }
+      ]
+    }
   }
 
 }

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { AboutPage } from '../about/about';
 import { HomePage } from '../home/home';
+import { TranslateService } from '@ngx-translate/core';
 
 /**
  * Generated class for the MenuPage page.
@@ -21,7 +22,7 @@ export class MenuPage {
   menu: object[];
   cache: Map<number, object[]>;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController, public translate: TranslateService) {
     let possibleMenu = this.navParams.get("value");
 
     if (typeof possibleMenu == "string") {

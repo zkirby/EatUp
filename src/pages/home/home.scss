@@ -1,7 +1,5 @@
 page-home {
 
-	background: white;
-
 	// .menu-input, .item-input {
 	// 	position: relative;
 	// 	width: 100%;
@@ -17,5 +15,29 @@ page-home {
 	// 	top: 300px;
 	// 	background: orange;
 	// }
+
+	.no-input {
+		position: relative;
+		top: 50px;
+		left: 120px;
+
+		.tbutt {
+			background-color: color($colors, red);
+		}
+	}
+
+	.quick-input {
+		position: relative;
+		top: 55px;
+		left: 115px;
+
+		.bbutt {
+			background-color: color($colors, grey);
+		}
+	}
+
+	.sbutt {
+		background-color: color($colors, green);
+	}
 
 }

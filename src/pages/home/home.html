@@ -21,22 +21,22 @@
 
 	<div class="menu-input">
 		<ion-item>
-		    <ion-label fixed>Restaurant Name</ion-label>
+		    <ion-label fixed>{{"RESTAURANT NAME" | translate}}</ion-label>
 		    <ion-input type="text" [(ngModel)]="restVal"></ion-input>
 		</ion-item>
-		<button ion-button (click)="grabValue('r')" color="secondary">Submit</button>
+		<button class="sbutt" ion-button (click)="grabValue('r')">{{"SUBMIT" | translate}}</button>
   	</div>
 
 	<!-- <div class="item-input">
 		<button ion-button (click)="grabValue('q')" color="danger">No Menu</button>
 	</div> -->
 
-	<div class="item-imput">
-		<button ion-button (click)="grabValue('q2')" color="danger">No Menu</button>
+	<div class="no-input">
+		<button class="tbutt" ion-button (click)="grabValue('q2')">{{"NO MENU" | translate}}</button>
 	</div>
 
-	<div class="item-imput">
-		<button ion-button (click)="grabValue('a')" color="default">Quick Ask</button>
+	<div class="quick-input">
+		<button class="bbutt" ion-button (click)="grabValue('a')">{{"QUICK ASK" | translate}}</button>
 	</div>
 
 </ion-content>

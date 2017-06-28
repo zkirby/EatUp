@@ -26,7 +26,7 @@
 
 	.logo {
 		border-radius: 150px;
-	    background: black;
+	    background: color($colors, yellow);
 	    height: 40px;
 	    width: 40px;
 	    left: 27px;
@@ -40,7 +40,7 @@
 	    left: 153px;
 	    top: 13px;
 	    position: absolute;
-	    color: black;
+	    color: color($colors, grey);
 
 		font: {
 			size: 21px;
@@ -53,14 +53,14 @@
 	    width: 40px;
 	    height: 40px;
 	    border-radius: 150px;
-	    border: 1px solid red;
+	    border: 1px solid color($colors, red);
 	    left: 310px;
 	    top: 5px;
 		position: absolute;
 
 		.ask-text {
 			top: 5%;
-			color: red;
+			color: color($colors, red);
 			position: relative;
 
 			font: {
@@ -68,6 +68,10 @@
 			}
 		}
 	}
+}
+
+.order-button {
+	background: color($colors, red);
 }
 
 
