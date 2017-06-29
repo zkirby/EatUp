@@ -22,8 +22,8 @@
 	<ion-list>
 		<ion-list-header>I would like...</ion-list-header>
 
-		<ion-item *ngFor="let item of getChildren(askItems)">
-			<button ion-button (click)="orderOrMove(item)" color="light" [ngClass]="{'order-path' : item.hit}">
+		<ion-item *ngFor="let item of getChildren(askItems); let i = index">
+			<button ion-button (click)="orderOrMove(item)" color="light" [ngClass]="{'order-path' : item.hit, 'fadeIn' : false}">
 			{{item.root | translate}}</button>
 		</ion-item>
 

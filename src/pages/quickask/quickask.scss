@@ -1,7 +1,12 @@
 page-quickask {
 
 	.order-path {
-		animation: pushForward 0.2s linear 0s 1;
+		animation: pushForward 0.1s linear 0s 1;
+		animation-fill-mode: forwards;
+	}
+
+	.fadeIn {
+		animation: fadeIn 0.3s linear 0s 1;
 		animation-fill-mode: forwards;
 	}
 
@@ -15,6 +20,15 @@ page-quickask {
 		left: 0px;
 	}
 	to {
-		left: 20px;
+		left: 10px;
+	}
+}
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
 	}
 }

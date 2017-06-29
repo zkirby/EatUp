@@ -53,7 +53,7 @@ export class QuickaskPage {
     } else {
       item['prev'] = this.askItems;
       item['hit'] = true;
-      setTimeout(()=> this.askItems = item, 400);
+      setTimeout(()=> this.askItems = item, 200);
     }
 
   }
@@ -87,56 +87,68 @@ export class QuickaskPage {
             {
             root: "SOME UTENSILS",
             hit: false,
+            show: ()=>{setTimeout(()=>(false),1000)},
             children: [
             {
               root: "A SPOON",
               hit: false,
+              show: ()=>{setTimeout(()=>(false),1000)},
               children: []
             },
             {
               root: "SOME CHOPSTICKS",
               hit: false,
+              show: ()=>{setTimeout(()=>(false),1000)},
               children: []
             },
             {
               root: "A KNIFE",
               hit: false,
+              show: ()=>{setTimeout(()=>(false),1000)},
               children: []
             },
             {
               root: "A FORK",
               hit: false,
+              show: ()=>{setTimeout(()=>(false),1000)},
               children: []
             }
           ]
         },
         {
           root: "SOME MORE..",
+          show: ()=>{setTimeout(()=>(true),2000)},
+          hit: false,
           children: [
           {
             root: "KETCHUP",
             hit: false,
+            show: ()=>{setTimeout(()=>(false),1000)},
             children: []
           },
           {
             root: "MILK",
             hit: false,
+            show: ()=>{setTimeout(()=>(false),1000)},
             children: []
           },
           {
             root: "WATER",
             hit: false,
+            show: ()=>{setTimeout(()=>(false),1000)},
             children: []
           },
           {
             root: "CREAMER",
             hit: false,
+            show: ()=>{setTimeout(()=>(false),1000)},
             children: []
           }
           ]
         },
         {
           root: "THE BILL",
+          show: ()=>{setTimeout(()=>(true),3000)},
           children: []
         }
       ]
