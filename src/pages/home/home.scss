@@ -18,26 +18,40 @@ page-home {
 
 	.no-input {
 		position: relative;
-		top: 50px;
-		left: 120px;
+	    top: 145px;
+		left: 40px;
 
 		.tbutt {
-			background-color: color($colors, red);
+
 		}
 	}
 
 	.quick-input {
 		position: relative;
-		top: 55px;
-		left: 115px;
+		top: 165px;
+    	left: 40px;
 
 		.bbutt {
-			background-color: color($colors, grey);
+			
 		}
 	}
 
-	.sbutt {
-		background-color: color($colors, green);
+	.menu-input {
+
+		.sbutt {
+			top: 125px;
+    		left: 40px;
+		}
+	}
+
+	#homeButton {
+		background-color: white;
+		border: 3px solid color($colors, red);
+		border-radius: 50px;
+		width: 259px;
+	    height: 55px;
+	    font-size: 38px;
+		color: color($colors, grey);
 	}
 
 }

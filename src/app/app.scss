@@ -18,8 +18,8 @@
 /* -- Navbar styling -- */
 .navbar-top {
 	position: relative;
-	top: 0%;
-	left: 0%;
+	top: 0px;
+	left: 0px;
 	height: 50px;
 	width: 100%;
 	text-align: center;
@@ -27,10 +27,10 @@
 	.logo {
 		border-radius: 150px;
 	    background: color($colors, yellow);
-	    height: 40px;
-	    width: 40px;
-	    left: 27px;
-	    top: 5px;
+	    height: 120px;
+	    width: 120px;
+	    left: 128px;
+	    top: 30px;
 	    display: inline-block;
 	    position: absolute;
 	}
@@ -53,18 +53,17 @@
 	    width: 40px;
 	    height: 40px;
 	    border-radius: 150px;
-	    border: 1px solid color($colors, red);
-	    left: 310px;
-	    top: 5px;
+	    left: 323px;
+	    top: 0px;
 		position: absolute;
 
 		.ask-text {
 			top: 5%;
-			color: color($colors, red);
+			color: color($colors, grey);
 			position: relative;
 
 			font: {
-				size: 30px;
+				size: 50px;
 			}
 		}
 	}
@@ -72,6 +71,10 @@
 
 .order-button {
 	background: color($colors, red);
+}
+
+.bg-style, .background, .background .pane, .background .item, .background .item-complex .item-content, .scroll-content, .navbar-top{
+	background: color($colors, tan);
 }
 
 

@@ -6,12 +6,11 @@
 
 </ion-header> -->
 
-<ion-header>
+<ion-header no-shadow>
 	<div class="navbar-top">
 		<div class="logo"></div>
-		<div class="title">EatUp!</div>
 		<div class="ask">
-			<div (click)="getHelpPage()" class="ask-text">?</div>
+			<ion-icon class="ask-text" name="settings"></ion-icon>
 		</div>
 	</div>
 </ion-header>
@@ -20,11 +19,11 @@
 <ion-content padding>
 
 	<div class="menu-input">
-		<ion-item>
+		<ion-item style="display: none;">
 		    <ion-label fixed>{{"RESTAURANT NAME" | translate}}</ion-label>
 		    <ion-input type="text" [(ngModel)]="restVal"></ion-input>
 		</ion-item>
-		<button class="sbutt" ion-button (click)="grabValue('r')">{{"SUBMIT" | translate}}</button>
+		<button class="sbutt" id="homeButton" ion-button (click)="grabValue('r')">{{"SUBMIT" | translate}}</button>
   	</div>
 
 	<!-- <div class="item-input">
@@ -32,11 +31,11 @@
 	</div> -->
 
 	<div class="no-input">
-		<button class="tbutt" ion-button (click)="grabValue('q2')">{{"NO MENU" | translate}}</button>
+		<button class="tbutt" id="homeButton" ion-button (click)="grabValue('q2')">{{"NO MENU" | translate}}</button>
 	</div>
 
 	<div class="quick-input">
-		<button class="bbutt" ion-button (click)="grabValue('a')">{{"QUICK ASK" | translate}}</button>
+		<button class="bbutt" id="homeButton" ion-button (click)="grabValue('a')">{{"QUICK ASK" | translate}}</button>
 	</div>
 
 </ion-content>
