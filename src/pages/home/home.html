@@ -9,7 +9,7 @@
 <ion-header no-shadow>
 	<div class="navbar-top">
 		<div class="logo"></div>
-		<div class="ask">
+		<div (click)="getHelpPage()" class="ask">
 			<ion-icon class="ask-text" name="settings"></ion-icon>
 		</div>
 	</div>
@@ -18,24 +18,35 @@
 
 <ion-content padding>
 
-	<div class="menu-input">
-		<ion-item style="display: none;">
-		    <ion-label fixed>{{"RESTAURANT NAME" | translate}}</ion-label>
-		    <ion-input type="text" [(ngModel)]="restVal"></ion-input>
+	<div [ngClass]="{'menuStage0' : stage != 2, 'menuStage1' : stage == 2}">
+		<ion-item>
+		    <ion-input class="inputRest" type="text" [(ngModel)]="restVal"></ion-input>
 		</ion-item>
-		<button class="sbutt" id="homeButton" ion-button (click)="grabValue('r')">{{"SUBMIT" | translate}}</button>
+		<button class="submitButton" id="homeButton" ion-button (click)="grabValue('r')">{{"SUBMIT" | translate}}</button>
   	</div>
 
 	<!-- <div class="item-input">
 		<button ion-button (click)="grabValue('q')" color="danger">No Menu</button>
 	</div> -->
 
-	<div class="no-input">
-		<button class="tbutt" id="homeButton" ion-button (click)="grabValue('q2')">{{"NO MENU" | translate}}</button>
-	</div>
+	<div [ngClass]="{'labelStage0' : stage == 0 || stage == 2, 'labelStage1' : stage == 1}">{{labelText | translate}}</div>
 
-	<div class="quick-input">
-		<button class="bbutt" id="homeButton" ion-button (click)="grabValue('a')">{{"QUICK ASK" | translate}}</button>
-	</div>
+	<button 
+
+		[ngClass]="{'button1Stage0' : stage == 0, 'button1Stage1' : stage == 1, 'button1Stage2' : stage == 2}" 
+
+		id="homeButton" ion-button (click)="nextStage('rest')">
+		{{button1Text | translate}}
+	</button>
+
+	<button 
+
+		[ngClass]="{'button2Stage0' : stage == 0, 'button2Stage1' : stage == 1, 'button2Stage2' : stage == 2}" 
+
+		id="homeButton" ion-button (click)="nextStage('order')">
+		{{button2Text | translate}}
+	</button>
+
+	<button [ngClass]="{'button3Stage0' : stage != 4}" id="homeButton" ion-button>{{button3Text | translate}}</button>
 
 </ion-content>

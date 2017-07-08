@@ -10,6 +10,7 @@
 	"RESTAURANT NAME" : "Restaurant Name",
 	"SUBMIT" : "Submit",
 	"NO MENU" : "No Menu",
+	"CHAT" : "Chat",
 	"QUICK ASK" : "Quick Ask",
 	"POWERED BY KAMUSI" : "Powered By Kamusi",
 	"SERVED AT" : "Served at",
@@ -24,5 +25,8 @@
 	"MILK" : "milk",
 	"WATER" : "water",
 	"CREAMER" : "creamer",
-	"THE BILL" : "the bill"
+	"THE BILL" : "the bill",
+	"FIND RESTAURANT" : "Find Restaurant",
+	"BY LOCATION" : "By Location",
+	"BY NAME" : "By Name"
 }

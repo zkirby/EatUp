@@ -135,6 +135,14 @@ export class Quesnav2Page {
     	checkbox: false,
     	isLeaf: false,
     	children: [
+        {
+          root: "An Appetizer",
+          checkbox: true,
+          isLeaf: false,
+          disabled: false, 
+          children: [],
+          subchildren: [" "]
+        },
     		{
     			root: "An Entree",
     			checkbox: true,
@@ -233,7 +241,15 @@ export class Quesnav2Page {
     			children: [],
     			subchildren: [" "],
     			disabled: false
-    		}
+    		},
+        {
+          root: "A Dessert",
+          checkbox: true,
+          isLeaf: false,
+          children: [],
+          subchildren: [" "],
+          disabled: false
+        }
     	]
     };
   }

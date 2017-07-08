@@ -4,4 +4,35 @@ page-quesnav2 {
 		display: none;
 	}
 
+	.server-label {
+		position: relative;
+	    top: 135px;
+	    background: transparent;
+	    z-index: 1;
+	    font-size: 30px;
+	    left: 45px;
+	    color: color($colors, grey);
+	}
+
+	.linked-header {
+		position: relative;
+    	top: 146px;
+    	left: 70px;
+	}
+
+	.option-item {
+	    position: relative;
+	    top: 131px;
+	    left: 58px;
+	    width: 225px;
+	    border-radius: 25px;
+	    margin-top: 14px;
+		ion-label {
+		    font-size: 27px;
+		    text-align: center;
+		}
+	}
+
 }
+
+

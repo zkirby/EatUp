@@ -1,11 +1,8 @@
-<ion-header>
+<ion-header no-shadow>
 	<div class="navbar-top">
-		<div (click)="goBack()" id="back" class="ask">
-		    <ion-icon class="ask-text" name="arrow-back"></ion-icon>
-		</div>
-		<div class="title">{{"ABOUT" | translate}}</div>
-		<div class="ask">
-			<div class="ask-text">?</div>
+		<div (click)="goHome()" class="logo"></div>
+		<div (click)="getHelpPage()" class="ask">
+			<ion-icon class="ask-text" name="settings"></ion-icon>
 		</div>
 	</div>
 </ion-header>

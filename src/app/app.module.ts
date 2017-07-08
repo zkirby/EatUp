@@ -13,10 +13,8 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { MyApp } from './app.component';
 import { AboutPage } from '../pages/about/about';
 import { HomePage } from '../pages/home/home';
-import { ItemPage } from '../pages/item/item';
 import { LoadingPage } from '../pages/loading/loading';
 import { MenuPage } from '../pages/menu/menu';
-import { QuesnavPage } from '../pages/quesnav/quesnav';
 import { Quesnav2Page } from '../pages/quesnav2/quesnav2';
 import { QuickaskPage } from '../pages/quickask/quickask';
 import { MenuDataProvider } from '../providers/menu-data/menu-data';
@@ -27,10 +25,8 @@ import { MenuDataProvider } from '../providers/menu-data/menu-data';
     MyApp,
     LoadingPage,
     HomePage, 
-    ItemPage,
     MenuPage,
     AboutPage,
-    QuesnavPage,
     Quesnav2Page,
     QuickaskPage
   ],
@@ -51,10 +47,8 @@ import { MenuDataProvider } from '../providers/menu-data/menu-data';
     MyApp,
     LoadingPage,
     HomePage,
-    ItemPage,
     MenuPage,
     AboutPage,
-    QuesnavPage,
     Quesnav2Page,
     QuickaskPage
   ],
