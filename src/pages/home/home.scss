@@ -11,6 +11,9 @@ page-home {
 		position: relative;
 	    top: 175px;
 		left: 40px;
+		opacity: 0;
+		animation: fadeIn 0.5s ease-in 0s 1;
+		animation-fill-mode: forwards;
 	}
 
 	.button1Stage2 {
@@ -34,6 +37,8 @@ page-home {
 		position: relative;
 	    top: 260px;
 		left: 40px;
+		animation: fadeIn 0.5s ease-in 0s 1;
+		animation-fill-mode: forwards;
 	}
 
 	.button2Stage2 { 
@@ -122,4 +127,10 @@ page-home {
 
 .item-ios.item-block .item-inner {
 	border-bottom: none;
+}
+
+@keyframes fadeIn {
+	to {
+		opacity: 1;
+	}
 }
