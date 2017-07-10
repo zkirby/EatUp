@@ -96,7 +96,7 @@ export class QuickaskPage {
               children: []
             },
             {
-              root: "SOME CHOPSTICKS",
+              root: "CHOPSTICKS",
               hit: false,
               show: ()=>{setTimeout(()=>(false),1000)},
               children: []

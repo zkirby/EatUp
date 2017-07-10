@@ -4,6 +4,10 @@ page-quesnav2 {
 		display: none;
 	}
 
+	.clicked {
+		background: color($colors, red);
+	}
+
 	.server-label {
 		position: relative;
 	    top: 135px;

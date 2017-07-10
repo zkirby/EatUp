@@ -17,7 +17,7 @@
 	"ORDER" : "Order",
 	"SOME UTENSILS": "some utensils",
 	"A SPOON": "a spoon",
-	"SOME CHOPSTICKS" : "some chopsticks",
+	"CHOPSTICKS" : "chopsticks",
 	"A KNIFE": "a knife",
 	"A FORK": "a fork",
 	"SOME MORE.." : "some more..",
@@ -28,5 +28,8 @@
 	"THE BILL" : "the bill",
 	"FIND RESTAURANT" : "Find Restaurant",
 	"BY LOCATION" : "By Location",
-	"BY NAME" : "By Name"
+	"BY NAME" : "By Name",
+	"TRANSLATE" : "Translate",
+	"MENU" : "Menu",
+	"I WOULD LIKE..." : "I would like..."
 }

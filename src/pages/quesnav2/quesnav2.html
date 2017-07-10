@@ -27,8 +27,8 @@
 	<ion-list *ngIf="!decisionTree['checkbox']" no-lines>
 		<ion-list-header class="linked-header">{{getFirst(headerLinkedList)}}</ion-list-header>
 
-		<ion-item (click)="style='background: black;'" class="option-item" *ngFor="let item of getChildren(decisionTree)" no-lines>
-				<ion-item *ngFor="let subitem of item['subchildren']" (click)="changeTree(item)" no-lines [ngClass]="{'invis': item.disabled}" no-lines>
+		<ion-item [ngClass]="{'clicked' : item.clicked}" class="option-item" *ngFor="let item of getChildren(decisionTree)" no-lines>
+				<ion-item style="background-color: transparent;" *ngFor="let subitem of item['subchildren']" (click)="changeTree(item)" no-lines [ngClass]="{'invis': item.disabled}" no-lines>
 					{{item.root + " " + subitem}}
 					<button class="order-button" ion-button (click)="orderItem(item.root + ' ' + subitem)" [ngClass]="{'invis': !item.isLeaf}">order</button>
 				</ion-item>
@@ -37,7 +37,7 @@
 	</ion-list>
 
 	<ion-list *ngIf="decisionTree['checkbox']">
-		<ion-list-header>{{getFirst(headerLinkedList)}}</ion-list-header>
+		<ion-list-header class="linked-header">{{getFirst(headerLinkedList)}}</ion-list-header>
 
 		<ion-item *ngFor="let item of getChildren(decisionTree)">
      		<ion-label>{{item.root}}</ion-label>

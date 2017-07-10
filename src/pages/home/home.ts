@@ -2,10 +2,11 @@ import { AboutPage } from '../about/about';
 import { Component } from '@angular/core';
 import { MenuPage } from '../menu/menu';
 import { MenuDataProvider } from '../../providers/menu-data/menu-data';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, AlertController } from 'ionic-angular';
 import { TranslateService } from '@ngx-translate/core';
 import { Quesnav2Page } from '../quesnav2/quesnav2';
 import { QuickaskPage } from '../quickask/quickask';
+
 
 /*
 	Main navigation page for the app
@@ -23,10 +24,11 @@ export class HomePage {
   stage: number;
   button1Text: string;
   button2Text: string;
-  button3Text: string;
   labelText: string;
+  menuObject: object;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public menuService: MenuDataProvider, public translate: TranslateService) {
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public menuService: MenuDataProvider, public translate: TranslateService, public alertCtrl: AlertController) {
   	
     // Set staging 
     this.restVal = "";
@@ -35,7 +37,6 @@ export class HomePage {
     // Set initial stage button names 
     this.button1Text = "FIND RESTAURANT";
     this.button2Text = "ORDER";
-    this.button3Text = "CHAT"; // Doesn't matter 
     this.labelText = "FIND RESTAURANT"; // Doesn't matter 
 
     // Set default lan to english 
@@ -68,41 +69,88 @@ export class HomePage {
       this.menuService.getRemoteData(this.restVal, this.userLang)
                       .subscribe((data) => { 
                                       if (data.length == 0) {
-                                        this.navCtrl.push(Quesnav2Page, { value: "couldn't find that menu :(", error: true });
+                                        //this.navCtrl.push(Quesnav2Page, { value: "couldn't find that menu :(", error: true });
+                                        this.finalStage(false);
+                                        this.menuObject = { value: [], error: false };
                                       } else {
-                                       this.navCtrl.push(destination, { value: data[0], error: false });
+                                       //this.navCtrl.push(destination, { value: data[0], error: false });
+                                       this.finalStage(true);
+                                       this.menuObject = { value: data[0], error: false }
                                       }
-                                  }, (err) => this.navCtrl.push(Quesnav2Page, { value: "couldn't find that menu :(", error: true }));
+                                  }, (err) => { this.finalStage(false); this.menuObject = { value: [], error: false } }); //this.navCtrl.push(Quesnav2Page, { value: "couldn't find that menu :(", error: true }));
 
-  	} else if (decision == "q") {
-
-  		destination = Quesnav2Page;
-  		params = { value: "", error: false };
-      this.navCtrl.push(destination, params);
-
-  	} else if (decision == "q2") {
-
-      destination = Quesnav2Page;
-      params = { value: "", error: false };
-      this.navCtrl.push(destination, params);
-
-    } else if (decision == "a") {
-
-      destination = QuickaskPage;
-      params = { value: "", error: false };
-      this.navCtrl.push(destination, params);
-
-    }
+  	} 
   }
 
   nextStage(direction: string) {
 
-    if (direction === "rest") {
-      this.stage += 1;
-      this.button2Text = "BY LOCATION";
-      this.button1Text = "BY NAME";
+    if (this.stage == 3) {
+
+      let destination: any;
+      let params: any;
+
+      if (direction === "rest") {
+
+        if (this.button1Text == "MENU") {
+
+          destination = MenuPage;
+          params = this.menuObject;
+
+        } else if (this.button1Text == "CHAT") {
+
+          destination = Quesnav2Page;
+          params = { value: "", error: false };
+
+        }
+
+      } else if (direction == "order") {
+
+        destination = QuickaskPage;
+        params = { value: "", error: false }
+
+      }
+
+      this.navCtrl.push(destination, params);
+
+    } else {
+
+      if (direction === "rest") {
+        this.stage += 1;
+        this.button2Text = "BY LOCATION";
+        this.button1Text = "BY NAME";
+      } else if (direction === "order") {
+        this.stage = 2;
+        this.finalStage(false);
+      }
     }
 
+  }
+
+  finalStage(menu:boolean) {
+    this.stage += 1;
+    this.button2Text = "QUICK ASK";
+    this.labelText = "ENGLISH";
+
+    if (menu) {
+      this.button1Text = "MENU";
+    } else {
+
+      let alert = this.alertCtrl.create({
+        title: 'Menu Not Found',
+        subTitle: "The restaurant you've entered does not have a menu in the Kamusi database, tell them to go to [link] to create a menu entry!",
+        buttons: ['OK']
+      });
+      alert.present();
+
+      this.button1Text = "CHAT";
+    }
+  }
+
+  startOver() {
+    this.stage = 0;
+    this.button1Text = "FIND RESTAURANT";
+    this.button2Text = "ORDER";
+    this.labelText = "FIND RESTAURANT";  
   }
 
   getHelpPage() {

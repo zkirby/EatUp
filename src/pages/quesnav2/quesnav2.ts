@@ -46,21 +46,26 @@ export class Quesnav2Page {
   }
 
   getFirst(item:object) {
-    return item["first"];
+    return item['first'];
   }
 
   changeTree(item:object) {
-  	if (this.getChildren(item).length == 0) {
-  		console.log("leaf");
-  	} else {
-  		this.decisionTree = item;
-  		let passOrder = this.headerLinkedList['pass'];
-  		this.headerLinkedList = this.headerLinkedList['next'];
 
-  		if (passOrder) {
-  			this.askOrder();
-  		}
-  	}
+    item['clicked'] = true;
+    setTimeout(()=> {
+      if (this.getChildren(item).length == 0) {
+          console.log("leaf");
+      } else {
+          this.decisionTree = item;
+          let passOrder = this.headerLinkedList['pass'];
+          this.headerLinkedList = this.headerLinkedList['next'];
+
+          if (passOrder) {
+            this.askOrder();
+          }
+        }
+    },150)
+  	
   }
 
   processStage(tree:object, stage:string) {
@@ -134,12 +139,14 @@ export class Quesnav2Page {
     	root: "root",
     	checkbox: false,
     	isLeaf: false,
+      clicked: false,
     	children: [
         {
           root: "An Appetizer",
           checkbox: true,
           isLeaf: false,
           disabled: false, 
+          clicked: false,
           children: [],
           subchildren: [" "]
         },
@@ -147,12 +154,14 @@ export class Quesnav2Page {
     			root: "An Entree",
     			checkbox: true,
     			isLeaf: false,
+          clicked: false,
     			disabled: false,
     			children: [
     				{
     					root: "Pizza",
     					checkbox: true,
     					isLeaf: false,
+              clicked: false,
     					disabled: false,
     					subchildren: [" "]
     				}, 
@@ -160,6 +169,7 @@ export class Quesnav2Page {
     					root: "Pasta",
     					checkbox: true,
     					isLeaf: false,
+              clicked: false,
     					disabled: false,
     					subchildren: [" "]
     				},
@@ -167,6 +177,7 @@ export class Quesnav2Page {
     					root: "Soup",
     					checkbox: true,
     					isLeaf: false,
+              clicked: false,
     					disabled: false,
     					subchildren: [" "]
     				}
@@ -175,34 +186,40 @@ export class Quesnav2Page {
     			nextStage: {
     				checkbox: true,
     				isLeaf: false,
+            clicked: false,
     				children: [
 					{
     					root: "Pizza",
     					isLeaf: false,
     					checkbox: false,
+              clicked: false,
     					disabled: false
     				}, 
     				{
     					root: "Pasta",
     					checkbox: false,
     					isLeaf: false,
+              clicked: false,
     					disabled: false
     				},
     				{
     					root: "Soup",
     					checkbox: false,
     					isLeaf: false,
+              clicked: false,
     					disabled: false
     				}
     				],
     				nextStage: {
 	    				checkbox: false,
 	    				isLeaf: false,
+              clicked: false,
 	    				children: [
 	    					{
 	    						root: "Pizza",
 	    						isLeaf: true,
 	    						checkbox: false,
+                  clicked: false,
 	    						disabled: false,
 	    						children: [],
 	    						subchildren: [
@@ -213,6 +230,7 @@ export class Quesnav2Page {
 	    						root: "Pasta",
 	    						isLeaf: true,
 	    						checkbox: false,
+                  clicked: false,
 	    						disabled: false,
 	    						children: [],
 	    						subchildren: [
@@ -223,6 +241,7 @@ export class Quesnav2Page {
 	    						root: "Soup",
 	    						isLeaf: true,
 	    						checkbox: false,
+                  clicked: false,
 	    						disabled: false,
 	    						children: [],
 	    						subchildren: [
@@ -238,6 +257,7 @@ export class Quesnav2Page {
     			root: "A Drink",
     			checkbox: true,
     			isLeaf: false,
+          clicked: false,
     			children: [],
     			subchildren: [" "],
     			disabled: false
@@ -246,6 +266,7 @@ export class Quesnav2Page {
           root: "A Dessert",
           checkbox: true,
           isLeaf: false,
+          clicked: false,
           children: [],
           subchildren: [" "],
           disabled: false

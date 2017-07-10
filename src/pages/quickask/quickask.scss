@@ -10,7 +10,50 @@ page-quickask {
 		animation-fill-mode: forwards;
 	}
 
+	// Quick Ask button styling 
+	#quickaskButton {
+		background-color: white;
+    	border-radius: 50px;
+    	width: 244px;
+    	height: 67px;
+    	font-size: 32px;
+    	color: color($colors, grey);
+	}
 
+	.title-header {
+	    width: 283px;
+	    text-align: center;
+	    position: relative;
+	    font-size: 28px;
+	    top: -35px;
+	}
+
+	.order-button {
+		top: 113px;
+	    left: 5px;
+	    width: 65px;
+	    height: 45px;
+	    font-size: 30px;
+	}
+
+	.label-ios {
+		margin-bottom: 0px;
+	}
+
+	.list-ios {
+		left: 32px;
+	    position: relative;
+	    top: 125px;
+	}
+	
+	.item-ios {
+		background-color: transparent;
+	}
+}
+
+
+.item-ios.item-block .item-inner, .list-header-ios, .list-ios > .item-block:last-child, .list-ios > .item-wrapper:last-child .item-block {
+	border-bottom: none;
 }
 
 

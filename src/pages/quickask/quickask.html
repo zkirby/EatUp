@@ -17,11 +17,13 @@
 <ion-content padding>
 
 	<ion-list>
-		<ion-list-header>I would like...</ion-list-header>
+		<ion-list-header class="title-header">{{"I WOULD LIKE..." | translate}}</ion-list-header>
 
-		<ion-item *ngFor="let item of getChildren(askItems); let i = index">
-			<button ion-button (click)="orderOrMove(item)" color="light" [ngClass]="{'order-path' : item.hit, 'fadeIn' : false}">
-			{{item.root | translate}}</button>
+		<ion-item *ngFor="let item of getChildren(askItems)">
+			<button id="quickaskButton" ion-button (click)="orderOrMove(item)" color="light"
+			[ngClass]="{'order-path' : item.hit, 'fadeIn' : false}">
+				{{item.root | translate}}
+			</button>
 		</ion-item>
 
 	</ion-list>

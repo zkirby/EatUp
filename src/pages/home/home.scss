@@ -3,7 +3,7 @@ page-home {
 	// Staging for b1 
 	.button1Stage0 {
 		position: relative;
-	    top: 160px;
+	    top: 180px;
 		left: 40px;
 	}
 
@@ -17,10 +17,16 @@ page-home {
 		display: none;
 	}
 
+	.button1Stage3 {
+		position: relative;
+	    top:  128px;
+		left: 40px;
+	}
+
 	// Staging for b2 
 	.button2Stage0 {
 		position: relative;
-	    top: 270px;
+	    top: 235px;
 		left: 40px;
 	}
 
@@ -34,6 +40,12 @@ page-home {
 		display: none;
 	}
 
+	.button2Stage3 { 
+		position: relative;
+	    top: 175px;
+		left: 40px;
+	}
+
 	// Label Staging 
 	.labelStage0 {
 		display: none;
@@ -42,8 +54,17 @@ page-home {
 	.labelStage1 {
 		position: relative;
 	    top: 125px;
-	    left: 44px;
+	    left: 47px;
 	    font-size: 36px;
+	    color: color($colors, grey);
+	}
+
+	.labelStage3 {
+		position: relative;
+	    top: 100px;
+	    left: 1px;
+	    text-align: center;
+	    font-size: 40px;
 	    color: color($colors, grey);
 	}
 
@@ -86,11 +107,18 @@ page-home {
 		font-size: 40px;
 	}
 
+	.button3 {
+		position: relative;
+		top: 227px;
+    	left: 40px;
+	}
+
+	.item-ios {
+		background-color: transparent;
+	}
 }
 
-.item-ios {
-	background-color: transparent;
-}
+
 
 .item-ios.item-block .item-inner {
 	border-bottom: none;
