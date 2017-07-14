@@ -131,7 +131,7 @@ page-home {
 		top: 227px;
     	left: 5px;
     	opacity: 0;
-    	animation: fadeleftspecial 0.5s ease-out 0.2s 1;
+    	animation: fadeleft 0.5s ease-out 0.2s 1;
 		animation-fill-mode: forwards;
 	}
 
@@ -173,11 +173,5 @@ page-home {
 	}
 }
 
-@keyframes fadeleftspecial {
-	to {
-		opacity: 0.3;
-		left: 40px;
-	}
-}
 
 

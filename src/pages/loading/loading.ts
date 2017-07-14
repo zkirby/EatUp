@@ -75,7 +75,7 @@ export class LoadingPage {
 	  	.catch(e => { 
 
 	  		console.log("Error - " + e); 
-	  		this.languageService.set("user", "English");
+	  		this.languageService.set("user", "eng_3_1");
 	  		this.translate.setDefaultLang('eng_3_1'); 
 
 	  	} );

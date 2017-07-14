@@ -46,7 +46,7 @@
 		{{button2Text | translate}}
 	</button>
 
-	<button class="button3" [ngClass]="{'button3Stage0' : stage != 3}" id="homeButton" ion-button disabled="true">
+	<button class="button3" [ngClass]="{'button3Stage0' : stage != 3}" id="homeButton" ion-button (click)="goToTranslator()">
 		{{"TRANSLATE" | translate}}
 	</button>
 

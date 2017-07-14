@@ -6,6 +6,7 @@ import { NavController, NavParams, AlertController } from 'ionic-angular';
 import { TranslateService } from '@ngx-translate/core';
 import { Quesnav2Page } from '../quesnav2/quesnav2';
 import { QuickaskPage } from '../quickask/quickask';
+import { TranslatorPage } from '../translator/translator';
 import { LanguageDataProvider } from '../../providers/language-data/language-data';
 
 
@@ -41,7 +42,7 @@ export class HomePage {
     this.button2Text = "ORDER";
     this.labelText = "FIND RESTAURANT"; // Doesn't matter 
 
-    this.translate.use(this.languageService.getCode(this.languageService.get("user")));
+    this.translate.use(this.languageService.get("user"));
 
   }
 
@@ -155,6 +156,10 @@ export class HomePage {
 
   getHelpPage() {
     this.navCtrl.push(AboutPage);
+  }
+
+  goToTranslator() {
+    this.navCtrl.push(TranslatorPage);
   }
 
   ionViewDidLoad() {

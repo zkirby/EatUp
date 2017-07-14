@@ -16,7 +16,7 @@ export class TranslateDataProvider {
   }
 
   getRemoteData(toTranslate: string) {
-  	return this.http.get("http://kamusi.org/api/preD/termTranslate/" + toTranslate + "/" + this.languageService.get("user") + "/" + this.languageService.get("server"))
+  	return this.http.get("https://kamusi.org/preD/termTranslate/" + toTranslate + "/" + this.languageService.get("user") + "/" + this.languageService.get("server"))
                     .map(res => { return res.json() });
   }
 

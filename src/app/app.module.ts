@@ -17,9 +17,11 @@ import { LoadingPage } from '../pages/loading/loading';
 import { MenuPage } from '../pages/menu/menu';
 import { Quesnav2Page } from '../pages/quesnav2/quesnav2';
 import { QuickaskPage } from '../pages/quickask/quickask';
+import { TranslatorPage } from '../pages/translator/translator';
+
 import { MenuDataProvider } from '../providers/menu-data/menu-data';
 import { LanguageDataProvider } from '../providers/language-data/language-data';
-import { TranslateProvider } from '../providers/translate/translate';
+import { TranslateDataProvider } from '../providers/translate-data/translate-data';
 
 
 @NgModule({
@@ -30,7 +32,8 @@ import { TranslateProvider } from '../providers/translate/translate';
     MenuPage,
     AboutPage,
     Quesnav2Page,
-    QuickaskPage
+    QuickaskPage,
+    TranslatorPage
   ],
   imports: [
     BrowserModule,
@@ -52,7 +55,8 @@ import { TranslateProvider } from '../providers/translate/translate';
     MenuPage,
     AboutPage,
     Quesnav2Page,
-    QuickaskPage
+    QuickaskPage,
+    TranslatorPage
   ],
   providers: [
     StatusBar,
@@ -61,7 +65,7 @@ import { TranslateProvider } from '../providers/translate/translate';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     MenuDataProvider,
     LanguageDataProvider,
-    TranslateProvider,
+    TranslateDataProvider,
   ]
 })
 export class AppModule {}
