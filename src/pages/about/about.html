@@ -10,9 +10,16 @@
 
 <ion-content padding>
 
-	<ion-item>
+	<ion-item id="langSelect">
 	  <ion-label>{{"LANGUAGE" | translate}}</ion-label>
 	  <ion-select [(ngModel)]="language" okText="{{'OKAY' | translate}}" cancelText="{{'DISMISS' | translate}}" (ionChange)="changeLang()">
+	    <ion-option *ngFor="let lang of languageSupported" [value]="lang.code">{{lang.lang | translate}}</ion-option>
+	  </ion-select>
+	</ion-item>
+
+	<ion-item id="serverSelect">
+	  <ion-label>{{"RESTAURANT LANGUAGE" | translate}}</ion-label>
+	  <ion-select [(ngModel)]="languageServer" okText="{{'OKAY' | translate}}" cancelText="{{'DISMISS' | translate}}" (ionChange)="changeLangServer()">
 	    <ion-option *ngFor="let lang of languageSupported" [value]="lang.code">{{lang.lang | translate}}</ion-option>
 	  </ion-select>
 	</ion-item>

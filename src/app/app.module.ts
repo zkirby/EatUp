@@ -18,6 +18,8 @@ import { MenuPage } from '../pages/menu/menu';
 import { Quesnav2Page } from '../pages/quesnav2/quesnav2';
 import { QuickaskPage } from '../pages/quickask/quickask';
 import { MenuDataProvider } from '../providers/menu-data/menu-data';
+import { LanguageDataProvider } from '../providers/language-data/language-data';
+import { TranslateProvider } from '../providers/translate/translate';
 
 
 @NgModule({
@@ -58,6 +60,8 @@ import { MenuDataProvider } from '../providers/menu-data/menu-data';
     Globalization,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     MenuDataProvider,
+    LanguageDataProvider,
+    TranslateProvider,
   ]
 })
 export class AppModule {}

@@ -1,10 +1,15 @@
+
+
 page-home {
 
 	// Staging for b1 
 	.button1Stage0 {
 		position: relative;
-	    top: 180px;
 		left: 40px;
+		top: 190px;
+		opacity: 0;
+		animation: popin1 0.5s ease-in 0s 1;
+		animation-fill-mode: forwards;
 	}
 
 	.button1Stage1 {
@@ -23,14 +28,20 @@ page-home {
 	.button1Stage3 {
 		position: relative;
 	    top:  128px;
-		left: 40px;
+		left: 5px;
+		opacity: 0;
+		animation: fadeleft 0.5s ease-out 0s 1;
+		animation-fill-mode: forwards;
 	}
 
 	// Staging for b2 
 	.button2Stage0 {
 		position: relative;
-	    top: 235px;
+	    top: 245px;
 		left: 40px;
+		opacity: 0;
+		animation: popin2 0.5s ease-in 0s 1;
+		animation-fill-mode: forwards;
 	}
 
 	.button2Stage1 { 
@@ -48,7 +59,10 @@ page-home {
 	.button2Stage3 { 
 		position: relative;
 	    top: 175px;
-		left: 40px;
+		left: 5px;
+		opacity: 0;
+		animation: fadeleft 0.5s ease-out 0.1s 1;
+		animation-fill-mode: forwards;
 	}
 
 	// Label Staging 
@@ -115,7 +129,10 @@ page-home {
 	.button3 {
 		position: relative;
 		top: 227px;
-    	left: 40px;
+    	left: 5px;
+    	opacity: 0;
+    	animation: fadeleftspecial 0.5s ease-out 0.2s 1;
+		animation-fill-mode: forwards;
 	}
 
 	.item-ios {
@@ -134,3 +151,33 @@ page-home {
 		opacity: 1;
 	}
 }
+
+@keyframes popin1 {
+	to {
+		opacity: 1;
+		top: 180px;
+	}
+}
+
+@keyframes popin2 {
+	to {
+		opacity: 1;
+		top: 235px;
+	}
+}
+
+@keyframes fadeleft {
+	to {
+		opacity: 1;
+		left: 40px;
+	}
+}
+
+@keyframes fadeleftspecial {
+	to {
+		opacity: 0.3;
+		left: 40px;
+	}
+}
+
+

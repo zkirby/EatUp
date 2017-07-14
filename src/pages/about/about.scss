@@ -7,10 +7,28 @@ page-about {
 	.greeting {
 		position: relative;
 	    font-size: 42px;
-	    top: 24%;
+	    top: 35%;
 	    left: 14%;
 	    width: 245px;
 	    text-align: center;
+	    color: color($colors, grey);
 	} 
+
+	#langSelect {
+		position: relative;
+		top: 122px;
+		font-size: 20px;
+		color: color($colors, grey);
+	}
+
+	#serverSelect {
+		top: 127px;
+	    font-size: 20px;
+		color: color($colors, grey);
+	}
+
+	.item-ios {
+		background-color: transparent;
+	}
 
 }

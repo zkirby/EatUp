@@ -6,6 +6,8 @@ import { NavController, NavParams, AlertController } from 'ionic-angular';
 import { TranslateService } from '@ngx-translate/core';
 import { Quesnav2Page } from '../quesnav2/quesnav2';
 import { QuickaskPage } from '../quickask/quickask';
+import { LanguageDataProvider } from '../../providers/language-data/language-data';
+
 
 
 /*
@@ -28,7 +30,7 @@ export class HomePage {
   menuObject: object;
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public menuService: MenuDataProvider, public translate: TranslateService, public alertCtrl: AlertController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public menuService: MenuDataProvider, public translate: TranslateService, public alertCtrl: AlertController, public languageService: LanguageDataProvider) {
   	
     // Set staging 
     this.restVal = "";
@@ -39,20 +41,8 @@ export class HomePage {
     this.button2Text = "ORDER";
     this.labelText = "FIND RESTAURANT"; // Doesn't matter 
 
-    // Set default lan to english 
-    this.translate.setDefaultLang('en');
+    this.translate.use(this.languageService.getCode(this.languageService.get("user")));
 
-    if (this.navParams.get("error")) {
-      
-      this.navCtrl.push(Quesnav2Page, { value: "", error: false});
-
-    } else {
-
-      this.userLang = this.navParams.get("value");
-      this.translate.use(this.userLang);
-      console.log("Recieved language: " + this.userLang);
-
-    }
   }
 
   // I've left the decision as a string for right now 
@@ -70,14 +60,14 @@ export class HomePage {
                       .subscribe((data) => { 
                                       if (data.length == 0) {
                                         //this.navCtrl.push(Quesnav2Page, { value: "couldn't find that menu :(", error: true });
-                                        this.finalStage(false);
+                                        this.finalStage(false, true);
                                         this.menuObject = { value: [], error: false };
                                       } else {
                                        //this.navCtrl.push(destination, { value: data[0], error: false });
-                                       this.finalStage(true);
+                                       this.finalStage(true, false);
                                        this.menuObject = { value: data[0], error: false }
                                       }
-                                  }, (err) => { this.finalStage(false); this.menuObject = { value: [], error: false } }); //this.navCtrl.push(Quesnav2Page, { value: "couldn't find that menu :(", error: true }));
+                                  }, (err) => { this.finalStage(false, true); this.menuObject = { value: [], error: false } }); //this.navCtrl.push(Quesnav2Page, { value: "couldn't find that menu :(", error: true }));
 
   	} 
   }
@@ -120,30 +110,40 @@ export class HomePage {
         this.button1Text = "BY NAME";
       } else if (direction === "order") {
         this.stage = 2;
-        this.finalStage(false);
+        this.finalStage(false, false);
       }
     }
 
   }
 
-  finalStage(menu:boolean) {
+  finalStage(menu:boolean, error:boolean) {
     this.stage += 1;
     this.button2Text = "QUICK ASK";
-    this.labelText = "ENGLISH";
+    this.labelText = this.languageService.getName(this.languageService.get("server"));
 
     if (menu) {
       this.button1Text = "MENU";
     } else {
+      this.button1Text = "CHAT";
+    }
+
+    if (error) {
 
       let alert = this.alertCtrl.create({
         title: 'Menu Not Found',
-        subTitle: "The restaurant you've entered does not have a menu in the Kamusi database, tell them to go to [link] to create a menu entry!",
+        subTitle: "The restaurant you've entered does not have a menu in the Kamusi database, tell them to go to [link] to create a menu entry! Please enter the name of the restaurant below",
+        inputs: [
+          {
+            name: 'Please enter the restaurant name',
+            placeholder: 'Name'
+          },
+        ],
         buttons: ['OK']
       });
       alert.present();
 
-      this.button1Text = "CHAT";
     }
+
   }
 
   startOver() {
