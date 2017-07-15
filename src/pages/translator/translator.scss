@@ -1,3 +1,73 @@
 page-translator {
 
+	.go-button {
+		position: absolute;
+	    z-index: 1;
+	    left: 38%;
+	    top: 282px;
+	    height: 85px;
+	    width: 85px;
+	    border-radius: 14px;
+	    background: white;
+	    font-size: 42px;
+		color: color($colors, yellow);	
+	}
+
+	.box {
+		position: relative;
+	    width: 109%;
+	    right: 15px;
+	    height: 200px;
+	}
+
+	.server {
+		font-size: 30px;
+	    font-weight: bold;
+	    position: absolute;
+	    color: white;
+	    top: 466px;
+	    z-index: 1;
+	    left: 8px;
+	}
+
+	.user {
+		font-size: 30px;
+	    font-weight: bold;
+	    position: absolute;
+	    color: white;
+	    top: 118px;
+	    z-index: 1;
+	    left: 270px;
+	}
+
+	.user-box {
+		background: color($colors, red);
+		font-size: 42px;
+		color: white;
+		top: 113px;
+	}
+
+	.server-box {
+		background: color($colors, green);
+		top: 102px;
+	}
+
+	.button-ios.activated {
+		background: color($colors, yellow);
+		color: white;
+	}
+
+	.response-text {
+	    word-break: break-all;
+	    text-align: center;
+	    height: 98px;
+	    position: relative;
+	    top: 55px;
+	    left: 14px;
+	    width: 346px;
+	    overflow: auto;
+	    font-size: 35px;
+	    color: white;
+	    line-height: 93px;
+	}
 }

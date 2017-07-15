@@ -4,24 +4,28 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-header>
 
-  <ion-navbar>
-    <ion-title>translator</ion-title>
-  </ion-navbar>
-
+<ion-header no-shadow>
+	<div class="navbar-top">
+		<div (click)="goHome()" class="logo"></div>
+		<div (click)="getHelpPage()" class="ask">
+			<ion-icon class="ask-text" name="settings"></ion-icon>
+		</div>
+	</div>
 </ion-header>
 
 
 <ion-content padding>
 
-<ion-item>User: {{userLang}}</ion-item>
-<ion-item>Server: {{serverLang}}</ion-item>
-<ion-item>
+<ion-label class="user"><em>{{userLang}}</em></ion-label>
+<ion-label class="server"><em>{{serverLang}}</em></ion-label>
+<ion-item class="box user-box">
     <ion-input type="text" [(ngModel)]="termToTranslate"></ion-input>
 </ion-item>
-<button ion-button (click)="askForTerm()">get</button>
-<ion-item>Response: {{responseTerm}}</ion-item>
+<button class="go-button" ion-button (click)="askForTerm()">go!</button>
+<ion-label class="box server-box">
+	<div class="response-text">{{responseTerm}}</div>
+</ion-label>
 
 
 
