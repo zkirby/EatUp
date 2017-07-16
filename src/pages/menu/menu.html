@@ -17,8 +17,8 @@
 <ion-content padding>
 
 	<ion-list class="menu-categories">
-		<ion-item class="option" *ngFor="let cat of categories">
-			<div (click)=changeItems(cat.index)> {{cat.name}} </div>
+		<ion-item (click)=changeItems(cat.index) class="option" *ngFor="let cat of categories">
+			{{cat.name}}
 		</ion-item>
 	</ion-list>
 

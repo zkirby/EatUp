@@ -100,6 +100,9 @@ page-home {
 	.menuStage1 { 
 		position: relative;
     	top: 145px;
+    	opacity: 0;
+    	animation: popin1 0.5s ease-in 0s 1;
+		animation-fill-mode: forwards;
 	}
 
 	// Home button styling 

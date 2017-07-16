@@ -36,11 +36,13 @@ export class TranslatorPage {
   }
 
   askForTerm() {
+    this.serverLang = this.languageService.getName(this.languageService.get("server"));
+
   	this.translateService.getRemoteData(this.termToTranslate).subscribe((data) => {
   		let repsonseData = data[0];
       console.log(repsonseData);
 
-      if (repsonseData == undefined || repsonseData.length == 0) {
+      if (repsonseData == undefined || repsonseData["target_terms"].length == 0) {
         this.responseTerm = "Couldn't find that word :("
       } else {
         let tempString = ""

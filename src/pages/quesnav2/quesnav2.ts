@@ -8,6 +8,7 @@ import { AboutPage } from '../about/about';
  * See http://ionicframework.com/docs/components/#navigation for more info
  * on Ionic pages and navigation.
  */
+ 
 @IonicPage()
 @Component({
   selector: 'page-quesnav2',
