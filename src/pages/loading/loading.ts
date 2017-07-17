@@ -24,39 +24,40 @@ export class LoadingPage {
 		this.languageService.set("server", "eng_3_1");
 		this.languageService.set("user", "eng_3_1");
 
-		setTimeout(() => console.log("let animation play"), 200);
+		setTimeout(() => {
 
-		this.languageService.getRemoteData().subscribe((data) => {
+			this.languageService.getRemoteData().subscribe((data) => {
 
-			let langs = data;
-			let returnLangs = [];
-			let codes_word = {};
+				let langs = data;
+				let returnLangs = [];
+				let codes_word = {};
 
-			for (let lan of Object.keys(langs)) {
-	        	returnLangs.push({
-	          		lang: lan.toUpperCase(),
-	          		code: langs[lan]
-	        	})
-	        	codes_word[langs[lan]] = lan;
-	     	}
+				for (let lan of Object.keys(langs)) {
+		        	returnLangs.push({
+		          		lang: lan.toUpperCase(),
+		          		code: langs[lan]
+		        	})
+		        	codes_word[langs[lan]] = lan;
+		     	}
 
-	      	this.languageService.setLanguages(returnLangs);
-	      	this.languageService.setObject("name", langs);
-	      	this.languageService.setObject("codes", codes_word);
-	      	this.navCtrl.push(HomePage);
-		}, 
-		(err) =>
-    	{ 
-      		let langs = {lang: "ENGLISH", code: "en"};
-      		let langcode = { "English" : "en" };
-      		let codelang = { "en" : "English" };
+		      	this.languageService.setLanguages(returnLangs);
+		      	this.languageService.setObject("name", langs);
+		      	this.languageService.setObject("codes", codes_word);
+		      	this.navCtrl.push(HomePage);
+			}, 
+			(err) =>
+	    	{ 
+	      		let langs = {lang: "ENGLISH", code: "en"};
+	      		let langcode = { "English" : "en" };
+	      		let codelang = { "en" : "English" };
 
-      		this.languageService.setLanguages([langs]);
-      		this.languageService.setObject("name", langcode);
-	      	this.languageService.setObject("code", codelang);
-	      	this.navCtrl.push(HomePage);
+	      		this.languageService.setLanguages([langs]);
+	      		this.languageService.setObject("name", langcode);
+		      	this.languageService.setObject("code", codelang);
+		      	this.navCtrl.push(HomePage);
 
-    	});
+	    	});
+    	}, 1500);
 	}
 
 	ionViewDidLoad() {

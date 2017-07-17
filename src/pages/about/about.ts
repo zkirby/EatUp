@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { TranslateService } from '@ngx-translate/core';
 import { LanguageDataProvider } from '../../providers/language-data/language-data';
+import { TestPage } from '../test/test';
 
 
 /**
@@ -43,6 +44,10 @@ export class AboutPage {
 
   goBack() {
   	this.navCtrl.pop();
+  }
+
+  goTestScreen() {
+    this.navCtrl.push(TestPage);
   }
 
 }
