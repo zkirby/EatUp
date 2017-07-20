@@ -46,7 +46,7 @@ page-home {
 
 	.button2Stage1 { 
 		position: relative;
-	    top: 260px;
+	    top: 230px;
 		left: 40px;
 		animation: fadeIn 0.5s ease-in 0s 1;
 		animation-fill-mode: forwards;
@@ -75,7 +75,7 @@ page-home {
 	    top: 125px;
 	    left: 61px;
 	    font-size: 36px;
-	    color: color($colors, grey);
+	    color: color($colors, blue);
 	}
 
 	.labelStage3 {
@@ -84,7 +84,7 @@ page-home {
 	    left: 1px;
 	    text-align: center;
 	    font-size: 40px;
-	    color: color($colors, grey);
+	    color: color($colors, blue);
 	}
 
 	// Staging for b3 
@@ -107,13 +107,12 @@ page-home {
 
 	// Home button styling 
 	#homeButton {
-		background-color: white;
-		border: 3px solid color($colors, red);
+		background-color: color($colors, whitish);
 		border-radius: 50px;
 		width: 259px;
-	    height: 66px;
+	    height: 80px;
 	    font-size: 32px;//38px;
-		color: color($colors, grey);
+		color: color($colors, blue);
 	}
 
 	// Input and Submit Styling 
@@ -125,7 +124,7 @@ page-home {
 
 	.inputRest {
 		background-color: transparent;
-		color: color($colors, red);
+		color: color($colors, brick);
 		font-size: 40px;
 	}
 

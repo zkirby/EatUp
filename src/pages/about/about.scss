@@ -11,20 +11,20 @@ page-about {
 	    left: 14%;
 	    width: 245px;
 	    text-align: center;
-	    color: color($colors, grey);
+	    color: color($colors, blue);
 	} 
 
 	#langSelect {
 		position: relative;
 		top: 122px;
 		font-size: 20px;
-		color: color($colors, grey);
+		color: color($colors, blue);
 	}
 
 	#serverSelect {
 		top: 127px;
 	    font-size: 20px;
-		color: color($colors, grey);
+		color: color($colors, blue);
 	}
 
 	.item-ios {

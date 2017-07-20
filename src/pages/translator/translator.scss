@@ -10,7 +10,7 @@ page-translator {
 	    border-radius: 14px;
 	    background: white;
 	    font-size: 42px;
-		color: color($colors, yellow);	
+		color: color($colors, brick);	
 	}
 
 	.box {
@@ -48,12 +48,12 @@ page-translator {
 	}
 
 	.server-box {
-		background: color($colors, green);
+		background: color($colors, blue);
 		top: 102px;
 	}
 
 	.button-ios.activated {
-		background: color($colors, yellow);
+		background: color($colors, whitish);
 		color: white;
 	}
 

@@ -41,7 +41,7 @@ page-quesnav2 {
 	    z-index: 1;
 	    font-size: 30px;
 	    left: 58px;
-	    color: color($colors, grey);
+	    color: color($colors, blue);
 	}
 
 	.linked-header1 {
@@ -81,12 +81,12 @@ page-quesnav2 {
     	font-size: 30px;
     	margin-bottom: 10px;
     	border-radius: 25px;
-    	color: color($colors, grey);
+    	color: color($colors, blue);
 	}
 
 	.checkbox-ios .checkbox-checked {
-		border-color: color($colors, green);
-		background: color($colors, green);
+		border-color: color($colors, brick);
+		background: color($colors, brick);
 	}
 
 }

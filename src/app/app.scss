@@ -26,13 +26,16 @@
 
 	.logo {
 		border-radius: 150px;
-	    background: color($colors, yellow);
-	    height: 120px;
-	    width: 120px;
-	    left: 128px;
-	    top: 30px;
+	    height: 23px;
+	    width: 69px;
+	    right: 143%;
+	    top: 10px;
 	    display: inline-block;
 	    position: absolute;
+
+	    svg {
+	    	height: 219px;
+	    }
 	}
 
 	.title {
@@ -40,7 +43,7 @@
 	    left: 153px;
 	    top: 13px;
 	    position: absolute;
-	    color: color($colors, grey);
+	    color: color($colors, blue);
 
 		font: {
 			size: 21px;
@@ -59,7 +62,7 @@
 
 		.ask-text {
 			top: 5%;
-			color: color($colors, grey);
+			color: color($colors, blue);
 			position: relative;
 
 			font: {
