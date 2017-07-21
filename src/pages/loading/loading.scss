@@ -35,14 +35,14 @@ page-loading {
 			@include fadein(0.5s, 0.8, ease-in, 0.5s);
 
 			.logo-k {
-				width: 60px;
-				height: 60px;
-				top: 14%;
-				left: 27%;
-				position: relative;
-				border-radius: 250px;
-				background-color: color($colors, blue);
-				display: inline-block;
+				width: 225px;
+			    height: 66px;
+			    top: -4%;
+			    left: 18%;
+			    position: relative;
+			    border-radius: 250px;
+			    /* background-color: #3E3F62; */
+			    display: inline-block;
 			}
 
 			.powered-text {

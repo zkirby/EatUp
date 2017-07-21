@@ -4,7 +4,7 @@ page-translator {
 		position: absolute;
 	    z-index: 1;
 	    left: 38%;
-	    top: 282px;
+	    top: 269px;
 	    height: 85px;
 	    width: 85px;
 	    border-radius: 14px;
@@ -25,9 +25,9 @@ page-translator {
 	    font-weight: bold;
 	    position: absolute;
 	    color: white;
-	    top: 466px;
-	    z-index: 1;
-	    left: 8px;
+	    top: 453px;
+    	z-index: 1;
+    	left: -4px;
 	}
 
 	.user {
@@ -35,9 +35,9 @@ page-translator {
 	    font-weight: bold;
 	    position: absolute;
 	    color: white;
-	    top: 118px;
-	    z-index: 1;
-	    left: 270px;
+	    top: 101px;
+    	z-index: 1;
+    	left: 258px;
 	}
 
 	.user-box {
@@ -69,5 +69,12 @@ page-translator {
 	    font-size: 35px;
 	    color: white;
 	    line-height: 93px;
+	}
+
+	.body-content {
+		width: 100%;
+    	height: 100%;
+    	position: relative;
+    	top: 3%
 	}
 }

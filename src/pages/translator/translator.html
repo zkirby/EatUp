@@ -34,15 +34,17 @@
 
 <ion-content padding>
 
-<ion-label class="user"><em>{{userLang}}</em></ion-label>
-<ion-label class="server"><em>{{serverLang}}</em></ion-label>
-<ion-item class="box user-box">
-    <ion-input type="text" [(ngModel)]="termToTranslate"></ion-input>
-</ion-item>
-<button class="go-button" ion-button (click)="askForTerm()">go!</button>
-<ion-label class="box server-box">
-	<div class="response-text">{{responseTerm}}</div>
-</ion-label>
+<div class="body-content">
+	<ion-label class="user"><em>{{userLang}}</em></ion-label>
+	<ion-label class="server"><em>{{serverLang}}</em></ion-label>
+	<ion-item class="box user-box">
+	    <ion-input type="text" [(ngModel)]="termToTranslate"></ion-input>
+	</ion-item>
+	<button class="go-button" ion-button (click)="askForTerm()">go!</button>
+	<ion-label class="box server-box">
+		<div class="response-text">{{responseTerm}}</div>
+	</ion-label>
+</div>
 
 
 
