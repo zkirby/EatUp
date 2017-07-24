@@ -109,12 +109,10 @@ page-home {
 
 	// Home button styling 
 	#homeButton {
-		background-color: color($colors, whitish);
 		border-radius: 50px;
 		width: 259px;
 	    height: 80px;
 	    font-size: 32px;//38px;
-		color: color($colors, blue);
 	}
 
 	// Input and Submit Styling 
@@ -141,6 +139,16 @@ page-home {
 
 	.item-ios {
 		background-color: transparent;
+	}
+
+	.button-ios.activated {
+		background: color($colors, brick);
+		color: color($colors, whitish);
+	}
+
+	.button-ios {
+		background-color: color($colors, whitish);
+		color: color($colors, blue);
 	}
 }
 

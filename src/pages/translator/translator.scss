@@ -54,7 +54,7 @@ page-translator {
 
 	.button-ios.activated {
 		background: color($colors, whitish);
-		color: white;
+		color: color($colors, red);
 	}
 
 	.response-text {

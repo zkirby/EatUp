@@ -4,9 +4,6 @@ page-quesnav2 {
 		display: none;
 	}
 
-	.clicked {
-		background: color($colors, red);
-	}
 
 	.next-button {
 		background: #8e1919;
@@ -87,6 +84,10 @@ page-quesnav2 {
 
 	.checkbox-ios .checkbox-checked {
 		border-color: color($colors, brick);
+		background: color($colors, brick);
+	}
+
+	.button-ios.activated {
 		background: color($colors, brick);
 	}
 
