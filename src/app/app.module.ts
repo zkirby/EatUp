@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { Globalization } from '@ionic-native/globalization';
+import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { HttpModule, Http } from '@angular/http';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -64,6 +65,7 @@ import { TranslateDataProvider } from '../providers/translate-data/translate-dat
     StatusBar,
     SplashScreen,
     Globalization,
+    InAppBrowser,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     MenuDataProvider,
     LanguageDataProvider,

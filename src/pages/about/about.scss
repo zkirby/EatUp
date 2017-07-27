@@ -16,19 +16,36 @@ page-about {
 
 	#langSelect {
 		position: relative;
-		top: 122px;
-		font-size: 20px;
-		color: color($colors, blue);
+	    top: 155px;
+	    font-size: 22px;
+	    color: #3E3F62;
+	    background: color($colors, whitish);
+	    border-radius: 4px;
 	}
 
 	#serverSelect {
-		top: 127px;
-	    font-size: 20px;
+		top: 155px;
+    	font-size: 22px;
+	    background: color($colors, whitish);
 		color: color($colors, blue);
+		border-radius: 4px;
 	}
 
 	.item-ios {
 		background-color: transparent;
+	}
+
+	.button-link {
+		position: relative;
+	    height: 70px;
+	    width: 286px;
+	    border-radius: 25px;
+	    color: color($colors, blue);
+	    font-size: 26px;
+	    top: 167px;
+	    left: 29px;
+	    margin-top: 33px;
+	    background: color($colors, whitish);
 	}
 
 }

@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Platform } from 'ionic-angular';
 import { TranslateService } from '@ngx-translate/core';
 import { LanguageDataProvider } from '../../providers/language-data/language-data';
-import { TestPage } from '../test/test';
+import { InAppBrowser } from '@ionic-native/in-app-browser';
 
 
 /**
@@ -22,7 +22,7 @@ export class AboutPage {
   language: string;
   languageServer: string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public translate: TranslateService, public languageService: LanguageDataProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public translate: TranslateService, public languageService: LanguageDataProvider, public platform: Platform, private iab: InAppBrowser) {
 
     this.language = this.languageService.get("user");
     this.languageServer = this.languageService.get("server");
@@ -46,8 +46,10 @@ export class AboutPage {
   	this.navCtrl.pop();
   }
 
-  goTestScreen() {
-    this.navCtrl.push(TestPage);
+  launch(url) {
+    this.platform.ready().then(() => {
+      this.iab.create(url, "_system", "location=yes");
+    });
   }
 
 }
