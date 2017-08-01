@@ -51,7 +51,6 @@ export class HomePage {
   // the home screen.
   grabValue(decision: string) {
   	let destination: any;
-  	let params: any;
 
   	if (decision == "r") {
 
