@@ -2,8 +2,8 @@
 The EatUp Hybrid Mobile application from the Kamusi app suite. Used for accurate restaurant menu translations.
 
 # Setup
-install npm and ionic 
-run ionic serve to view the project
+install npm and ionic.
+run ionic serve to view the project.
 more on the docs homepage https://ionicframework.com/
 
 # Documentation 
