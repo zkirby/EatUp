@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, Platform } from 'ionic-angular';
 import { TranslateService } from '@ngx-translate/core';
 import { LanguageDataProvider } from '../../providers/language-data/language-data';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
+import { AuthTestPage } from '../auth-test/auth-test'; 
 
 
 /**
@@ -44,6 +45,10 @@ export class AboutPage {
 
   goBack() {
   	this.navCtrl.pop();
+  }
+
+  test_auth_page() {
+    this.navCtrl.push(AuthTestPage);
   }
 
   launch(url) {

@@ -12,6 +12,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 import { MyApp } from './app.component';
 import { AboutPage } from '../pages/about/about';
+import { AuthTestPage } from '../pages/auth-test/auth-test';
 import { HomePage } from '../pages/home/home';
 import { LoadingPage } from '../pages/loading/loading';
 import { MenuPage } from '../pages/menu/menu';
@@ -23,6 +24,7 @@ import { TestPage } from '../pages/test/test';
 import { MenuDataProvider } from '../providers/menu-data/menu-data';
 import { LanguageDataProvider } from '../providers/language-data/language-data';
 import { TranslateDataProvider } from '../providers/translate-data/translate-data';
+import { AuthProvider } from '../providers/auth/auth';
 
 
 @NgModule({
@@ -35,7 +37,8 @@ import { TranslateDataProvider } from '../providers/translate-data/translate-dat
     Quesnav2Page,
     QuickaskPage,
     TranslatorPage,
-    TestPage
+    TestPage,
+    AuthTestPage
   ],
   imports: [
     BrowserModule,
@@ -59,7 +62,8 @@ import { TranslateDataProvider } from '../providers/translate-data/translate-dat
     Quesnav2Page,
     QuickaskPage,
     TranslatorPage,
-    TestPage
+    TestPage,
+    AuthTestPage
   ],
   providers: [
     StatusBar,
@@ -70,6 +74,7 @@ import { TranslateDataProvider } from '../providers/translate-data/translate-dat
     MenuDataProvider,
     LanguageDataProvider,
     TranslateDataProvider,
+    AuthProvider,
   ]
 })
 export class AppModule {}
