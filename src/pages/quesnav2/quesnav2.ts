@@ -53,17 +53,19 @@ export class Quesnav2Page {
   changeTree(item:object) {
 
     item['clicked'] = true;
-    if (this.getChildren(item).length == 0) {
-        console.log("leaf");
-    } else {
-        this.decisionTree = item;
-        let passOrder = this.headerLinkedList['pass'];
-        this.headerLinkedList = this.headerLinkedList['next'];
+    setTimeout(()=> {
+      if (this.getChildren(item).length == 0) {
+          console.log("leaf");
+      } else {
+          this.decisionTree = item;
+          let passOrder = this.headerLinkedList['pass'];
+          this.headerLinkedList = this.headerLinkedList['next'];
 
-        if (passOrder) {
-          this.askOrder();
+          if (passOrder) {
+            this.askOrder();
+          }
         }
-    }
+    },150)
   	
   }
 
@@ -138,25 +140,96 @@ export class Quesnav2Page {
     	root: "root",
     	checkbox: false,
     	isLeaf: false,
+      clicked: false,
     	children: [
         {
           root: "An Appetizer",
           checkbox: true,
           isLeaf: false,
           disabled: false, 
-          children: [],
-          subchildren: [" "]
+          clicked: false,
+          children: [
+          {
+    					root: "Bread Sticks",
+    					checkbox: true,
+    					isLeaf: false,
+                        clicked: false,
+    					disabled: false,
+    					subchildren: [" "]
+    				}, 
+    				{
+    					root: "Croissants",
+    					checkbox: true,
+    					isLeaf: false,
+                        clicked: false,
+    					disabled: false,
+    					subchildren: [" "]
+    				}
+          ],
+          subchildren: [" "],
+          nextStage: {
+    				checkbox: true,
+    				isLeaf: false,
+                    clicked: false,
+    				children: [
+					{
+    					root: "Bread Sticks",
+    					isLeaf: false,
+    					checkbox: false,
+                        clicked: false,
+    					disabled: false
+    				}, 
+    				{
+    					root: "Croissants",
+    					checkbox: false,
+    					isLeaf: false,
+                        clicked: false,
+    					disabled: false
+    				}
+    				],
+    				nextStage: {
+	    				checkbox: false,
+	    				isLeaf: false,
+                        clicked: false,
+	    				children: [
+	    					{
+	    						root: "Bread Sticks",
+	    						isLeaf: true,
+	    						checkbox: false,
+                                clicked: false,
+	    						disabled: false,
+	    						children: [],
+	    						subchildren: [
+	    							""
+	    						]
+	    					}, 
+	    					{
+	    						root: "Croissants",
+	    						isLeaf: true,
+	    						checkbox: false,
+                                clicked: false,
+	    						disabled: false,
+	    						children: [],
+	    						subchildren: [
+	    							"with butter", "with cheese"
+	    						]
+	    					}
+	    				]
+    				}
+    			},
         },
     		{
     			root: "An Entree",
     			checkbox: true,
     			isLeaf: false,
+          clicked: false,
     			disabled: false,
     			children: [
     				{
     					root: "Pizza",
     					checkbox: true,
     					isLeaf: false,
+              clicked: false,
     					disabled: false,
     					subchildren: [" "]
     				}, 
@@ -164,6 +237,7 @@ export class Quesnav2Page {
     					root: "Pasta",
     					checkbox: true,
     					isLeaf: false,
+              clicked: false,
     					disabled: false,
     					subchildren: [" "]
     				},
@@ -171,6 +245,7 @@ export class Quesnav2Page {
     					root: "Soup",
     					checkbox: true,
     					isLeaf: false,
+              clicked: false,
     					disabled: false,
     					subchildren: [" "]
     				}
@@ -179,34 +254,40 @@ export class Quesnav2Page {
     			nextStage: {
     				checkbox: true,
     				isLeaf: false,
+            clicked: false,
     				children: [
 					{
     					root: "Pizza",
     					isLeaf: false,
     					checkbox: false,
+              clicked: false,
     					disabled: false
     				}, 
     				{
     					root: "Pasta",
     					checkbox: false,
     					isLeaf: false,
+              clicked: false,
     					disabled: false
     				},
     				{
     					root: "Soup",
     					checkbox: false,
     					isLeaf: false,
+              clicked: false,
     					disabled: false
     				}
     				],
     				nextStage: {
 	    				checkbox: false,
 	    				isLeaf: false,
+              clicked: false,
 	    				children: [
 	    					{
 	    						root: "Pizza",
 	    						isLeaf: true,
 	    						checkbox: false,
+                  clicked: false,
 	    						disabled: false,
 	    						children: [],
 	    						subchildren: [
@@ -217,6 +298,7 @@ export class Quesnav2Page {
 	    						root: "Pasta",
 	    						isLeaf: true,
 	    						checkbox: false,
+                  clicked: false,
 	    						disabled: false,
 	    						children: [],
 	    						subchildren: [
@@ -227,6 +309,7 @@ export class Quesnav2Page {
 	    						root: "Soup",
 	    						isLeaf: true,
 	    						checkbox: false,
+                  clicked: false,
 	    						disabled: false,
 	    						children: [],
 	    						subchildren: [
@@ -242,16 +325,305 @@ export class Quesnav2Page {
     			root: "A Drink",
     			checkbox: true,
     			isLeaf: false,
-    			children: [],
+                clicked: false,
+    			disabled: false,
+    			children: [
+    				{
+    					root: "Soft Drink",
+    					checkbox: true,
+    					isLeaf: false,
+                        clicked: false,
+    					disabled: false,
+    					subchildren: [" "]
+    				}, 
+    				{
+    					root: "Bottled Beer",
+    					checkbox: true,
+    					isLeaf: false,
+                        clicked: false,
+    					disabled: false,
+    					subchildren: [" "]
+    				}, 
+    				{
+    					root: "Coffee",
+    					checkbox: true,
+    					isLeaf: false,
+                        clicked: false,
+    					disabled: false,
+    					subchildren: [" "]
+    				}, 
+    				{
+    					root: "Bottled Water",
+    					checkbox: true,
+    					isLeaf: false,
+                        clicked: false,
+    					disabled: false,
+    					subchildren: [" "]
+    				}, 
+    				{
+    					root: "Juice",
+    					checkbox: true,
+    					isLeaf: false,
+                        clicked: false,
+    					disabled: false,
+    					subchildren: [" "]
+    				}, 
+    				{
+    					root: "Tea",
+    					checkbox: true,
+    					isLeaf: false,
+                        clicked: false,
+    					disabled: false,
+    					subchildren: [" "]
+    				}
+    			],
     			subchildren: [" "],
-    			disabled: false
+    			nextStage: {
+    				checkbox: true,
+    				isLeaf: false,
+                    clicked: false,
+    				children: [
+					{
+    					root: "Soft Drink",
+    					isLeaf: false,
+    					checkbox: false,
+                        clicked: false,
+    					disabled: false
+    				}, 
+    				{
+    					root: "Bottled Beer",
+    					checkbox: false,
+    					isLeaf: false,
+                        clicked: false,
+    					disabled: false
+    				}, 
+    				{
+    					root: "Coffee",
+    					checkbox: false,
+    					isLeaf: false,
+                        clicked: false,
+    					disabled: false
+    				}, 
+    				{
+    					root: "Bottled Water",
+    					checkbox: false,
+    					isLeaf: false,
+                        clicked: false,
+    					disabled: false
+    				}, 
+    				{
+    					root: "Juice",
+    					checkbox: false,
+    					isLeaf: false,
+                        clicked: false,
+    					disabled: false
+    				}, 
+    				{
+    					root: "Tea",
+    					checkbox: false,
+    					isLeaf: false,
+                        clicked: false,
+    					disabled: false
+    				},
+    				],
+    				nextStage: {
+	    				checkbox: false,
+	    				isLeaf: false,
+                        clicked: false,
+	    				children: [
+	    					{
+	    						root: "Soft Drink",
+	    						isLeaf: true,
+	    						checkbox: false,
+                                clicked: false,
+	    						disabled: false,
+	    						children: [],
+	    						subchildren: [
+	    							""
+	    						]
+	    					}, 
+	    					{
+	    						root: "Bottled Beer",
+	    						isLeaf: true,
+	    						checkbox: false,
+                                clicked: false,
+	    						disabled: false,
+	    						children: [],
+	    						subchildren: [
+	    							""
+	    						]
+	    					}, 
+	    					{
+	    						root: "Coffee",
+	    						isLeaf: true,
+	    						checkbox: false,
+                                clicked: false,
+	    						disabled: false,
+	    						children: [],
+	    						subchildren: [
+	    							""
+	    						]
+	    					}, 
+	    					{
+	    						root: "Bottled Water",
+	    						isLeaf: true,
+	    						checkbox: false,
+                                clicked: false,
+	    						disabled: false,
+	    						children: [],
+	    						subchildren: [
+	    							""
+	    						]
+	    					}, 
+	    					{
+	    						root: "Juice",
+	    						isLeaf: true,
+	    						checkbox: false,
+                                clicked: false,
+	    						disabled: false,
+	    						children: [],
+	    						subchildren: [
+	    							""
+	    						]
+	    					}, 
+	    					{
+	    						root: "Tea",
+	    						isLeaf: true,
+	    						checkbox: false,
+                                clicked: false,
+	    						disabled: false,
+	    						children: [],
+	    						subchildren: [
+	    							""
+	    						]
+	    					},
+	    				]
+    				}
+    			},
+
     		},
         {
           root: "A Dessert",
           checkbox: true,
           isLeaf: false,
-          children: [],
+          clicked: false,
+          children: [
+            {
+    					root: "Cake",
+    					checkbox: true,
+    					isLeaf: false,
+                        clicked: false,
+    					disabled: false,
+    					subchildren: [" "]
+    				}, 
+    				{
+    					root: "Ice Cream",
+    					checkbox: true,
+    					isLeaf: false,
+                        clicked: false,
+    					disabled: false,
+    					subchildren: [" "]
+    				}, 
+    				{
+    					root: "Pie",
+    					checkbox: true,
+    					isLeaf: false,
+                        clicked: false,
+    					disabled: false,
+    					subchildren: [" "]
+    				}, 
+    				{
+    					root: "Frozen Yogurt",
+    					checkbox: true,
+    					isLeaf: false,
+                        clicked: false,
+    					disabled: false,
+    					subchildren: [" "]
+    				}
+          ],
           subchildren: [" "],
+          nextStage: {
+    				checkbox: true,
+    				isLeaf: false,
+                    clicked: false,
+    				children: [
+					{
+    					root: "Cake",
+    					isLeaf: false,
+    					checkbox: false,
+                        clicked: false,
+    					disabled: false
+    				}, 
+    				{
+    					root: "Ice Cream",
+    					checkbox: false,
+    					isLeaf: false,
+                        clicked: false,
+    					disabled: false
+    				}, 
+    				{
+    					root: "Pie",
+    					checkbox: false,
+    					isLeaf: false,
+                        clicked: false,
+    					disabled: false
+    				}, 
+    				{
+    					root: "Frozen Yogurt",
+    					checkbox: false,
+    					isLeaf: false,
+                        clicked: false,
+    					disabled: false
+    				}
+    				],
+    				nextStage: {
+	    				checkbox: false,
+	    				isLeaf: false,
+                        clicked: false,
+	    				children: [
+	    					{
+	    						root: "Cake",
+	    						isLeaf: true,
+	    						checkbox: false,
+                                clicked: false,
+	    						disabled: false,
+	    						children: [],
+	    						subchildren: [
+	    							"with strawberries", "with whipped cream"
+	    						]
+	    					}, 
+	    					{
+	    						root: "Ice Cream",
+	    						isLeaf: true,
+	    						checkbox: false,
+                                clicked: false,
+	    						disabled: false,
+	    						children: [],
+	    						subchildren: [
+	    							"with fruit", "with chocolate"
+	    						]
+	    					}, 
+	    					{
+	    						root: "Pie",
+	    						isLeaf: true,
+	    						checkbox: false,
+                                clicked: false,
+	    						disabled: false,
+	    						children: [],
+	    						subchildren: [""]
+	    					}, 
+	    					{
+	    						root: "Frozen Yogurt",
+	    						isLeaf: true,
+	    						checkbox: false,
+                                clicked: false,
+	    						disabled: false,
+	    						children: [],
+	    						subchildren: [""]
+	    					}
+	    				]
+    				}
+    			},
           disabled: false
         }
     	]
