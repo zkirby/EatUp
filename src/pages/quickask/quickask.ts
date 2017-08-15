@@ -112,6 +112,12 @@ export class QuickaskPage {
               hit: false,
               show: ()=>{setTimeout(()=>(false),1000)},
               children: []
+            },
+            {
+              root: "A TOOTHPICK",
+              hit: false,
+              show: ()=>{setTimeout(()=>(false),1000)},
+              children: []
             }
           ]
         },
@@ -139,7 +145,13 @@ export class QuickaskPage {
             children: []
           },
           {
-            root: "CREAMER",
+            root: "NAPKINS",
+            hit: false,
+            show: ()=>{setTimeout(()=>(false),1000)},
+            children: []
+          },
+          {
+            root: "CREAM",
             hit: false,
             show: ()=>{setTimeout(()=>(false),1000)},
             children: []
@@ -149,6 +161,11 @@ export class QuickaskPage {
         {
           root: "THE BILL",
           show: ()=>{setTimeout(()=>(true),3000)},
+          children: []
+        },
+        {
+          root: "THE MENU",
+          show: ()=>{setTimeout(()=>(true),4000)},
           children: []
         }
       ]
